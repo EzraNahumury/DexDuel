@@ -1,0 +1,10 @@
+[package]
+name = "SC_Dex_Duel"
+version = "0.0.4"
+edition = "2024.beta"
+published-at = "0xa8317c6e62c5bbd0d43470f311df3921444bb79bdb90ccb2021e2736d7284edc"
+
+[dependencies]
+
+[addresses]
+sc_dex_duel = "0xa8317c6e62c5bbd0d43470f311df3921444bb79bdb90ccb2021e2736d7284edc"

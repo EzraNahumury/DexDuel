@@ -1,0 +1,58 @@
+# ===========================
+# Move / OneChain Build Files
+# ===========================
+
+# Build artifacts
+build/
+build/*
+
+# Test traces & coverage
+traces/
+.trace
+.coverage*
+
+# ===========================
+# Backup Files
+# ===========================
+*.bak
+*.backup
+*.tmp
+
+# ===========================
+# OS Files
+# ===========================
+
+# macOS
+.DS_Store
+.AppleDouble
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# ===========================
+# IDE / Editor
+# ===========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===========================
+# Environment & Secrets
+# ===========================
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ===========================
+# Logs & Output
+# ===========================
+*.log
+logs/
+publish_output.txt

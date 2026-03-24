@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sui move build:*)",
+      "Bash(ls:*)",
+      "Bash(sui move test 2>&1 | head -100)",
+      "Bash(sui --version 2>&1)",
+      "Bash(sui move test 2>&1 | tail -30)",
+      "Bash(one move test 2>&1 | tail -50)",
+      "Bash(one move test 2>&1 | grep \"^error\\\\|^\\\\[.*error\\\\|E0[0-9]\" | head -30)",
+      "Bash(one move test 2>&1 | grep -E \"error\\\\[|^FAILED|Test result\" | head -20)",
+      "Bash(one move test 2>&1 | grep \"┌─\" | sort -u | head -20)",
+      "Bash(one move test 2>&1 | grep -A 10 \"one-system\\\\|one-framework.*test\" | head -80)",
+      "Bash(one move test --filter sc_dex_duel 2>&1 | tail -30)",
+      "Bash(one move test sc_dex_duel 2>&1 | tail -30)",
+      "Bash(one move test sc_dex_duel 2>&1 | grep -E \"PASS|FAIL|Test result|error\\\\[\" | head -30)",
+      "Bash(one move test 2>&1 | grep -E \"PASS|FAIL|Test result|error\\\\[\" | head -30)",
+      "Bash(one move test 2>&1 | grep \"┌─\" | sort -u)",
+      "Bash(one move test 2>&1 | grep -E \"PASS|FAIL|Test result|^error\" | head -30)",
+      "Bash(one move build 2>&1 | head -100)",
+      "Bash(one move build 2>&1 | tail -50)",
+      "Bash(one move build 2>&1 | grep -E \"error|Build successful|BUILDING\")"
+    ]
+  }
+}
