@@ -1,0 +1,180 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum RoundStatus {
+  UPCOMING
+  LIVE
+  FINISHED
+  CANCELED
+  SETTLED
+}
+
+model Season {
+  id            Int      @id @default(autoincrement())
+  seasonNo      Int      @unique @default(autoincrement())
+  chainSeasonNo BigInt?  @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  rounds    Round[]
+}
+
+model ChainCursor {
+  /// contoh: "game_round::RoundCreated" atau "leaderboard::ScoreUpdated"
+  eventType  String   @id
+  cursor     String
+  updatedAt  DateTime @updatedAt
+}
+
+model ChainEvent {
+  id        String   @id @default(cuid())
+  eventType String
+  txDigest  String
+  eventSeq  Int
+  timestamp DateTime
+  payload   Json
+
+  createdAt DateTime @default(now())
+
+  @@unique([eventType, txDigest, eventSeq])
+  @@index([eventType, timestamp])
+}
+
+model Round {
+  id           String     @id @default(cuid())
+  roundNo      Int        @unique @default(autoincrement())
+  
+  // Object Address on blockchain (0x...)
+  roundId      String     @unique 
+  
+  // The u64 ID from smart contract (optional reference)
+  chainRoundId BigInt?    
+
+  seasonId   Int?
+  season     Season?   @relation(fields: [seasonId], references: [id])
+
+  pairSymbol String
+  coinSymbol String
+  startTime  DateTime
+  endTime    DateTime
+  entryFee   BigInt
+
+  // set saat ended
+  priceStart BigInt?
+  priceEnd   BigInt?
+  winnerDir  Int?       // 0/1/2
+
+  // set saat settled
+  totalYield BigInt?
+  adminFee   BigInt?
+  prizePool  BigInt?
+
+  status     RoundStatus @default(UPCOMING)
+
+  // agregat (diupdate dari PredictionRecorded)
+  upCount    Int @default(0)
+  downCount  Int @default(0)
+  totalParticipants Int @default(0)
+  totalUpStake   BigInt @default(0)
+  totalDownStake BigInt @default(0)
+
+  // soft delete (archive)
+  isHidden     Boolean   @default(false)
+  hiddenAt     DateTime?
+  hiddenReason String?
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  ownerAddress String?
+
+  predictions Prediction[]
+  claims      RewardClaim[]
+
+  @@index([isHidden, status, startTime])
+}
+
+model Prediction {
+  id        String  @id @default(cuid())
+  roundId   String
+  player    String
+  direction Int     // 1 UP, 2 DOWN
+  stakeRaw  BigInt
+  time      DateTime
+  isEarly   Boolean
+
+  // hasil (diupdate dari PredictionResultSet)
+  isCorrect Boolean?
+  rank      Int?
+
+  txDigest  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  round Round @relation(fields: [roundId], references: [roundId])
+
+  @@unique([roundId, player])          // 1 prediksi per player per round
+  @@index([roundId, time])
+  @@index([player, time])
+}
+
+model RewardClaim {
+  id        String  @id @default(cuid())
+  roundId   String
+  player    String
+  principal BigInt
+  reward    BigInt
+
+  txDigest  String
+  timestamp DateTime
+  createdAt DateTime @default(now())
+
+  round Round @relation(fields: [roundId], references: [roundId])
+
+  @@unique([roundId, player])          // anti double claim
+  @@index([player, timestamp])
+}
+
+model Score {
+  id        String  @id @default(cuid())
+  seasonId  BigInt
+  player    String
+  total     BigInt
+  streak    BigInt
+  updatedAt DateTime
+
+  @@unique([seasonId, player])
+  @@index([seasonId, total])
+}
+
+model ScoreEvent {
+  id        String  @id @default(cuid())
+  seasonId  BigInt
+  player    String
+  points    BigInt
+  newTotal  BigInt
+  streak    BigInt
+
+  txDigest  String
+  timestamp DateTime
+  createdAt DateTime @default(now())
+
+  @@index([seasonId, timestamp])
+  @@index([player, timestamp])
+}
+
+model SeasonSummary {
+  id           String @id @default(cuid())
+  seasonId     BigInt @unique
+  totalPlayers BigInt
+  winner       String
+  winningScore BigInt
+
+  txDigest     String
+  timestamp    DateTime
+  createdAt    DateTime @default(now())
+}

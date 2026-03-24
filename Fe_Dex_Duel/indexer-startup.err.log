@@ -1,0 +1,1478 @@
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma\schema.prisma.
+[indexer/game_round] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13)
+    at async main (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:162:5) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/prediction] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13)
+    at async main (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:162:5) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_controller] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13)
+    at async main (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:162:5) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/leaderboard] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13)
+    at async main (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:162:5) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/dexduel] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13)
+    at async main (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:162:5) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_round] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/prediction] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_controller] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/leaderboard] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/dexduel] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_round] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/prediction] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_controller] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/leaderboard] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/dexduel] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_round] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/prediction] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_controller] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/leaderboard] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/dexduel] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_round] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/prediction] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_controller] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/leaderboard] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/dexduel] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_round] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/prediction] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_controller] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/leaderboard] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/dexduel] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_round] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/prediction] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_controller] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/leaderboard] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/dexduel] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_round] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/prediction] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_controller] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/leaderboard] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/dexduel] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_round] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/prediction] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_controller] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/leaderboard] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/dexduel] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_round] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/prediction] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_controller] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/leaderboard] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/dexduel] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_round] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/prediction] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_controller] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/leaderboard] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/dexduel] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_round] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/prediction] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_controller] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/leaderboard] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/dexduel] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_round] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/prediction] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_controller] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/leaderboard] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/dexduel] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_round] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/prediction] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/game_controller] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/leaderboard] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}
+[indexer/dexduel] Poll cycle error: PrismaClientKnownRequestError: 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+    at zr.handleRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at zr.handleAndLogRequestError (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at zr.request (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:808:24)
+    at async loadCursor (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:17)
+    at async pollModule (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:68:18)
+    at async runCycle (C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:145:13) {
+  code: 'ECONNREFUSED',
+  meta: { modelName: 'ChainCursor' },
+  clientVersion: '7.4.1'
+}

@@ -1,0 +1,190 @@
+{
+  "info": {
+    "name": "DexDuel API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Public",
+      "item": [
+        {
+          "name": "Health DB",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/health/db"
+          }
+        },
+        {
+          "name": "Leaderboard",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/leaderboard?seasonId={{seasonId}}&limit={{limit}}"
+          }
+        },
+        {
+          "name": "Market Candles",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/market/candles?symbol={{symbol}}&resolution={{resolution}}&from={{from}}&to={{to}}"
+          }
+        },
+        {
+          "name": "Market Quote",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/market/quote?symbol={{symbol}}"
+          }
+        },
+        {
+          "name": "Market Symbols",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/market/symbols?exchange={{exchange}}&quote={{quote}}"
+          }
+        },
+        {
+          "name": "Rounds",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/rounds"
+          }
+        },
+        {
+          "name": "Tournaments",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/tournaments?status={{status}}&q={{q}}&limit={{limit}}&cursor={{cursor}}&includeHidden={{includeHidden}}"
+          }
+        },
+        {
+          "name": "Tournament By RoundId",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/tournaments/{{roundId}}"
+          }
+        },
+        {
+          "name": "Predictions By RoundId",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/tournaments/{{roundId}}/predictions?limit={{predictionsLimit}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Get Nonce",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/nonce"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const body = pm.response.json();",
+                  "if (body && body.nonce) {",
+                  "  pm.environment.set('nonce', body.nonce);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Verify Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"address\": \"{{adminAddress}}\",\n  \"signature\": \"{{adminSignature}}\",\n  \"nonce\": \"{{nonce}}\"\n}"
+            },
+            "url": "{{baseUrl}}/api/auth/verify"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Admin Tournaments",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/admin/tournaments?includeHidden={{includeHidden}}"
+          }
+        },
+        {
+          "name": "Create Tournament",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pairSymbol\": \"{{pairSymbol}}\",\n  \"startTimeMs\": {{startTimeMs}},\n  \"endTimeMs\": {{endTimeMs}},\n  \"seasonNo\": {{seasonNo}}\n}"
+            },
+            "url": "{{baseUrl}}/api/admin/tournaments/create"
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const now = Date.now();",
+                  "pm.environment.set('startTimeMs', now + 60 * 1000);",
+                  "pm.environment.set('endTimeMs', now + 60 * 60 * 1000);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Validate Tournament",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roundId\": \"{{roundId}}\",\n  \"seasonId\": \"{{seasonId}}\",\n  \"coinSymbol\": \"{{coinSymbol}}\",\n  \"startTime\": \"{{startTimeIso}}\",\n  \"endTime\": \"{{endTimeIso}}\",\n  \"entryFeeRaw\": \"{{entryFeeRaw}}\",\n  \"earlyWindowMinutes\": {{earlyWindowMinutes}}\n}"
+            },
+            "url": "{{baseUrl}}/api/admin/tournaments/validate"
+          }
+        },
+        {
+          "name": "Hide Tournament",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hidden\": true,\n  \"reason\": \"testing\"\n}"
+            },
+            "url": "{{baseUrl}}/api/admin/tournaments/{{roundId}}/hide"
+          }
+        },
+        {
+          "name": "Cancel Tournament",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/admin/tournaments/{{chainRoundId}}/cancel"
+          }
+        }
+      ]
+    }
+  ]
+}

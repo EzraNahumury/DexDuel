@@ -1,0 +1,658 @@
+
+> dexduel_fe@0.1.0 preindexer:dev C:\repo_hackaton\DexDuel\Fe_Dex_Duel
+> pnpm run prisma:generate:client
+
+
+> dexduel_fe@0.1.0 prisma:generate:client C:\repo_hackaton\DexDuel\Fe_Dex_Duel
+> prisma generate --generator client
+
+
+✔ Generated Prisma Client (v7.4.1) to .\node_modules\.pnpm\@prisma+client@7.4.1_prisma_6ce4ee8affe235b151380cfa069ddd54\node_modules\@prisma\client in 296ms
+
+Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+
+
+
+> dexduel_fe@0.1.0 indexer:dev C:\repo_hackaton\DexDuel\Fe_Dex_Duel
+> tsx server/indexer/indexer.ts
+
+[dotenv@17.3.1] injecting env (0) from .env.local -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (6) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+╔══════════════════════════════════════════════════╗
+║   DexDuel On-Chain Event Indexer — starting…    ║
+╚══════════════════════════════════════════════════╝
+  RPC: https://rpc-testnet.onelabs.cc:443
+  Package: 0xfcb745f20df975c8436ee5ce22c51b389545ffa6f0ac53a435bfdcf2dc1de64d
+  Poll interval: 5000ms
+  Modules: game_round, prediction, game_controller, leaderboard, dexduel
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+
+prisma:error 
+Invalid `prisma.chainCursor.findUnique()` invocation in
+C:\repo_hackaton\DexDuel\Fe_Dex_Duel\server\indexer\indexer.ts:40:42
+
+  37 
+  38 /** Load the last saved EventId cursor for this module. */
+  39 async function loadCursor(mod: PolledModule): Promise<EventId | undefined> {
+→ 40     const row = await prisma.chainCursor.findUnique(
+

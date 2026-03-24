@@ -1,0 +1,468 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens ─────────────────────────────────────────────── */
+@theme inline {
+  --color-primary: #0df280;
+  --color-primary-dark: #0bc965;
+  --color-background-light: #f5f8f7;
+  --color-background-dark: #0a0a0a;
+  --color-arena-dark: #102219;
+  --color-arena-card: #161b22;
+  --color-surface-dark: #121a16;
+  --color-accent-dark: #1a2e24;
+  --color-accent-red: #ff4d4d;
+  --color-accent-blue: #3b82f6;
+  --color-danger: #ff4d4d;
+}
+
+/* ─── Base reset ────────────────────────────────────────────────── */
+/* MUST be in @layer base so Tailwind utilities (in @layer utilities)
+   can override padding/margin. Unlayered styles beat all named layers
+   in the CSS cascade (Tailwind v4). */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; padding: 0; margin: 0; }
+
+  body {
+    background-color: #020817;
+    color: #f1f5f9;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #1a2e24 transparent;
+  }
+}
+
+@layer base {
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #1a2e24; border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: #224936; }
+}
+
+/* ─── Material Symbols ──────────────────────────────────────────── */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  vertical-align: middle;
+}
+.material-symbols-outlined.fill-1 {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ─── Cyber grid (landing hero) ─────────────────────────────────── */
+.cyber-grid {
+  background-image:
+    linear-gradient(to right, rgba(13, 242, 128, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(13, 242, 128, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ─── Blue cyber grid (new landing hero) ────────────────────────── */
+.blue-cyber-grid {
+  background-image:
+    linear-gradient(to right, rgba(59, 130, 246, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* ─── Hero orbit spin ───────────────────────────────────────────── */
+@keyframes heroSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ─── Arena chart dot grid ──────────────────────────────────────── */
+.chart-grid {
+  background-image: radial-gradient(#224936 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ─── Glow effects ──────────────────────────────────────────────── */
+.glow-primary  { box-shadow: 0 0 15px rgba(13, 242, 128, 0.3); }
+.neon-glow     { box-shadow: 0 0 15px rgba(13, 242, 128, 0.2); }
+.gold-glow     { box-shadow: 0 0 20px rgba(255, 215, 0, 0.15); }
+.silver-glow   { box-shadow: 0 0 20px rgba(192, 192, 192, 0.15); }
+.bronze-glow   { box-shadow: 0 0 20px rgba(205, 127, 50, 0.15); }
+
+/* ─── Glass panels ──────────────────────────────────────────────── */
+.glass-panel {
+  background: rgba(22, 27, 34, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(13, 242, 128, 0.1);
+}
+
+/* ─── Marquee animation ─────────────────────────────────────────── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+/* ─── Fade-in-up ────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up { animation: fadeInUp 0.45s ease-out both; }
+
+/* ─── Numbers ───────────────────────────────────────────────────── */
+.stat-number {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* ─── Arena Portal: glowing ring pulse ─────────────────────────── */
+@keyframes ringGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 42px rgba(59,130,246,0.45),
+      0 0 84px rgba(59,130,246,0.18),
+      inset 0 0 36px rgba(59,130,246,0.07);
+  }
+  50% {
+    box-shadow:
+      0 0 70px rgba(59,130,246,0.75),
+      0 0 140px rgba(59,130,246,0.35),
+      inset 0 0 58px rgba(59,130,246,0.14);
+  }
+}
+.animate-ring-glow {
+  animation: ringGlow 3s ease-in-out infinite;
+}
+
+/* ─── Arena Portal: slow spinning decorative rings ──────────────── */
+@keyframes slowSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes slowSpinReverse {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
+}
+.animate-slow-spin         { animation: slowSpin        22s linear infinite; }
+.animate-slow-spin-reverse { animation: slowSpinReverse 14s linear infinite; }
+
+/* ─── Arena Portal: flowing dash on SVG lines ───────────────────── */
+@keyframes flowDash {
+  from { stroke-dashoffset: 40; }
+  to   { stroke-dashoffset:  0; }
+}
+
+/* ─── Hero button float ─────────────────────────────────────────── */
+@keyframes heroButtonFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-7px); }
+}
+@keyframes btnGlowPulse {
+  0%, 100% { box-shadow: 0 0 24px rgba(59,130,246,0.35), 0 4px 20px rgba(59,130,246,0.2); }
+  50%       { box-shadow: 0 0 44px rgba(59,130,246,0.7), 0 8px 36px rgba(6,182,212,0.3); }
+}
+
+/* ─── Hero background dots twinkle ──────────────────────────────── */
+@keyframes dotTwinkle {
+  0%, 100% { opacity: 0.15; transform: scale(1);   }
+  50%       { opacity: 1;    transform: scale(2.2); }
+}
+
+/* ─── Hero background blob pulse ────────────────────────────────── */
+@keyframes blobPulse {
+  0%, 100% { opacity: 1;    transform: scale(1);    }
+  50%       { opacity: 0.55; transform: scale(1.18); }
+}
+
+/* ─── Isometric block float animations ─────────────────────────── */
+@keyframes isoFloat1 {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+@keyframes isoFloat2 {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-20px); }
+}
+@keyframes isoFloat3 {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+/* ─── Battle card scan line ─────────────────────────────────────── */
+@keyframes battleScan {
+  0%   { transform: translateY(-2px);   opacity: 0;   }
+  8%   { opacity: 0.9; }
+  85%  { opacity: 0.4; }
+  100% { transform: translateY(380px); opacity: 0;   }
+}
+
+/* ─── Price flicker — simulates live data refresh ───────────────── */
+@keyframes priceFlicker {
+  0%,  87%, 91%, 100% { opacity: 1;   }
+  88% { opacity: 0.45; }
+  90% { opacity: 0.85; }
+}
+
+/* ─── Why DexDuel cards — float up/down animation ───────────────── */
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0px);    }
+  50%       { transform: translateY(-10px); }
+}
+/* hover overrides the float and does the lift instead */
+.why-card:hover {
+  animation-play-state: paused !important;
+}
+
+/* ─── Why DexDuel cards — modern hover effects ──────────────────── */
+.why-card {
+  transition: transform 0.38s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.38s ease,
+              border-color 0.38s ease !important;
+}
+.why-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 24px 52px rgba(59,130,246,0.2),
+              0 0 0 1px rgba(59,130,246,0.35) !important;
+  border-color: rgba(59,130,246,0.35) !important;
+}
+/* Background ambient glow reveal */
+.why-bg-glow {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.why-card:hover .why-bg-glow {
+  opacity: 1;
+}
+/* Corner decoration lines */
+.why-corner-h, .why-corner-v {
+  opacity: 0.22;
+  transition: opacity 0.38s ease;
+}
+.why-card:hover .why-corner-h,
+.why-card:hover .why-corner-v {
+  opacity: 1;
+}
+/* Icon ring pulse on hover */
+.why-icon-ring {
+  opacity: 0;
+}
+.why-card:hover .why-icon-ring {
+  animation: iconRingPulse 1.5s ease-out infinite;
+}
+@keyframes iconRingPulse {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  75%  { transform: scale(2.2); opacity: 0;   }
+  100% { transform: scale(2.2); opacity: 0;   }
+}
+/* Bottom accent bar slide-in */
+.why-bottom-bar {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.why-card:hover .why-bottom-bar {
+  transform: scaleX(1);
+}
+
+/* ─── Legend row slide-in ───────────────────────────────────────── */
+@keyframes legendRowIn {
+  from { opacity: 0; transform: translateX(-18px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ─── Win-rate bar fill ─────────────────────────────────────────── */
+@keyframes fillBar {
+  from { width: 0%; }
+}
+
+/* ─── Stat counter pop ──────────────────────────────────────────── */
+@keyframes statPop {
+  0%   { opacity: 0; transform: scale(0.7) translateY(8px); }
+  70%  { transform: scale(1.08) translateY(-2px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ─── Explicit safe-list classes used dynamically ───────────────── */
+/* Landing page battle cards */
+.border-l-primary   { border-left-color: #0df280; }
+.border-l-accent-red  { border-left-color: #ff4d4d; }
+.border-l-accent-blue { border-left-color: #3b82f6; }
+/* Leaderboard podium */
+.border-primary\/30 { border-color: rgba(13, 242, 128, 0.3); }
+
+/* ─── Live pulse badge ──────────────────────────────────────────── */
+@keyframes livePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(13,242,128,0.5); }
+  50%       { box-shadow: 0 0 0 6px rgba(13,242,128,0); }
+}
+@keyframes liveDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.5); opacity: 0.7; }
+}
+.animate-live-pulse { animation: livePulse 1.8s ease-in-out infinite; }
+.animate-live-dot   { animation: liveDot 1.4s ease-in-out infinite; }
+
+/* ─── Card hover glow ───────────────────────────────────────────── */
+.tournament-card {
+  transition: transform 0.35s cubic-bezier(0.23,1,0.32,1),
+              box-shadow 0.35s ease,
+              border-color 0.35s ease;
+}
+.tournament-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(13,242,128,0.12),
+              0 0 0 1px rgba(13,242,128,0.2);
+}
+.tournament-card-live:hover {
+  box-shadow: 0 20px 48px rgba(13,242,128,0.18),
+              0 0 0 1px rgba(13,242,128,0.35);
+}
+
+/* ─── Vote bar fill animation ───────────────────────────────────── */
+@keyframes voteBarFill {
+  from { width: 0%; }
+}
+.animate-vote-bar { animation: voteBarFill 0.8s cubic-bezier(0.23,1,0.32,1) both; }
+
+/* ─── Page header gradient text ─────────────────────────────────── */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-gradient-text {
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+}
+
+/* ─── Shimmer loading skeleton ──────────────────────────────────── */
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position: 200% 0; }
+}
+.animate-shimmer {
+  background: linear-gradient(90deg,
+    rgba(255,255,255,0.05) 25%,
+    rgba(255,255,255,0.12) 50%,
+    rgba(255,255,255,0.05) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+}
+
+/* ─── Card stagger entrance ─────────────────────────────────────── */
+@keyframes cardEnter {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-card-enter {
+  animation: cardEnter 0.55s cubic-bezier(0.23,1,0.32,1) both;
+}
+
+/* ─── Leaderboard row slide-in ──────────────────────────────────── */
+@keyframes rowSlideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.animate-row-enter {
+  animation: rowSlideIn 0.45s cubic-bezier(0.23,1,0.32,1) both;
+}
+
+/* ─── Podium rise animation ─────────────────────────────────────── */
+@keyframes podiumRise {
+  from { opacity: 0; transform: translateY(40px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-podium { animation: podiumRise 0.7s cubic-bezier(0.23,1,0.32,1) both; }
+
+/* ─── Gold/Silver/Bronze glows ──────────────────────────────────── */
+@keyframes goldPulse {
+  0%, 100% { box-shadow: 0 0 30px rgba(250,204,21,0.25), 0 0 60px rgba(250,204,21,0.08); }
+  50%       { box-shadow: 0 0 50px rgba(250,204,21,0.5),  0 0 100px rgba(250,204,21,0.18); }
+}
+@keyframes silverPulse {
+  0%, 100% { box-shadow: 0 0 30px rgba(203,213,225,0.2), 0 0 60px rgba(203,213,225,0.06); }
+  50%       { box-shadow: 0 0 50px rgba(203,213,225,0.4), 0 0 100px rgba(203,213,225,0.15); }
+}
+@keyframes bronzePulse {
+  0%, 100% { box-shadow: 0 0 30px rgba(194,65,12,0.22),  0 0 60px rgba(194,65,12,0.07); }
+  50%       { box-shadow: 0 0 50px rgba(194,65,12,0.45),  0 0 100px rgba(194,65,12,0.16); }
+}
+.animate-gold-glow   { animation: goldPulse   2.5s ease-in-out infinite; }
+.animate-silver-glow { animation: silverPulse 2.5s ease-in-out infinite; }
+.animate-bronze-glow { animation: bronzePulse 2.5s ease-in-out infinite; }
+
+/* ─── Form field glow on focus ──────────────────────────────────── */
+.form-field-glow:focus {
+  border-color: rgba(13,242,128,0.5) !important;
+  box-shadow: 0 0 0 3px rgba(13,242,128,0.12), 0 0 16px rgba(13,242,128,0.1);
+  outline: none;
+}
+
+/* ─── Neon border flicker ───────────────────────────────────────── */
+@keyframes neonFlicker {
+  0%, 95%, 100% { opacity: 1; }
+  96%            { opacity: 0.6; }
+  97%            { opacity: 0.9; }
+  98%            { opacity: 0.5; }
+  99%            { opacity: 1; }
+}
+.animate-neon-flicker { animation: neonFlicker 5s step-end infinite; }
+
+/* ─── Join panel UP button pulse ────────────────────────────────── */
+@keyframes upGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(13,242,128,0.15); }
+  50%       { box-shadow: 0 0 40px rgba(13,242,128,0.4), 0 0 80px rgba(13,242,128,0.15); }
+}
+@keyframes downGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(239,68,68,0.15); }
+  50%       { box-shadow: 0 0 40px rgba(239,68,68,0.4), 0 0 80px rgba(239,68,68,0.15); }
+}
+.animate-up-glow   { animation: upGlow   2s ease-in-out infinite; }
+.animate-down-glow { animation: downGlow 2s ease-in-out infinite; }
+
+/* ─── Score bar fill ─────────────────────────────────────────────── */
+@keyframes scoreBarFill {
+  from { width: 0%; opacity: 0.5; }
+  to   { opacity: 1; }
+}
+.animate-score-bar { animation: scoreBarFill 1s cubic-bezier(0.23,1,0.32,1) both; }
+
+/* ─── Floating sparkle dots ─────────────────────────────────────── */
+@keyframes sparkleFloat {
+  0%   { transform: translateY(0px) scale(1);   opacity: 0.6; }
+  50%  { transform: translateY(-18px) scale(1.2); opacity: 1; }
+  100% { transform: translateY(0px) scale(1);   opacity: 0.6; }
+}
+
+/* ─── Countdown timer glitch ────────────────────────────────────── */
+@keyframes timerGlitch {
+  0%, 93%, 100% { clip-path: none; transform: translate(0,0); }
+  94%  { clip-path: inset(20% 0 60% 0); transform: translate(-2px, 1px); }
+  95%  { clip-path: inset(50% 0 20% 0); transform: translate(2px, -1px); }
+  96%  { clip-path: none; transform: translate(0,0); }
+}
+.animate-timer { animation: timerGlitch 8s step-end infinite; }
