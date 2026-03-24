@@ -1,0 +1,29 @@
+# Foundry artifacts
+out/
+cache/
+
+# Ignition (if using Hardhat alongside)
+ignition/
+
+# Dependencies
+lib/
+node_modules/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sensitive information
+.env
+.env.*
+!.env.example
+
+# Logs and Debug
+*.log
+broadcast/
+
+# OS files
+.DS_Store
+Thumbs.db
