@@ -50,21 +50,10 @@ export async function GET(req: NextRequest) {
     }
 
     if (q) {
-      // Try to parse as a roundId number first; fall back to coinSymbol substring
-      const asNumber = (() => {
-        try {
-          return BigInt(q);
-        } catch {
-          return null;
-        }
-      })();
-      where.OR =
-        asNumber !== null
-          ? [
-              { roundId: asNumber },
-              { coinSymbol: { contains: q, mode: "insensitive" } },
-            ]
-          : [{ coinSymbol: { contains: q, mode: "insensitive" } }];
+      where.OR = [
+        { roundId: q },
+        { coinSymbol: { contains: q, mode: "insensitive" } },
+      ];
     }
 
     if (cursor) {

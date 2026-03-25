@@ -20,10 +20,8 @@ export async function PATCH(
     }
 
     const { roundId: rawId } = await params;
-    let roundId: bigint;
-    try {
-      roundId = BigInt(rawId);
-    } catch {
+    const roundId = rawId?.trim();
+    if (!roundId) {
       return Response.json({ ok: false, error: "Invalid roundId" }, { status: 400 });
     }
 

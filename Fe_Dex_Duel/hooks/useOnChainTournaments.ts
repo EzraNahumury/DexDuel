@@ -284,7 +284,7 @@ async function fetchOnChainTournaments(client: SuiClient): Promise<OnChainTourna
     if (count === 0) continue;
 
     for (let i = 0; i < count; i++) {
-      const eventJson = isRecord(sessionEvents[i]?.parsedJson) ? sessionEvents[i].parsedJson : {};
+      const eventJson = (isRecord(sessionEvents[i]?.parsedJson) ? sessionEvents[i].parsedJson : {}) as Record<string, unknown>;
 
       drafts.push({
         sessionId: sessionIds[i],

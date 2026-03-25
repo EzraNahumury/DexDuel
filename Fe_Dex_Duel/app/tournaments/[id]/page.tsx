@@ -1635,8 +1635,8 @@ export default function TournamentDetailPage() {
                   )}
                 </div>
                 <CandlestickChart
-                  candles={candlesQuery.data ?? null}
-                  quote={quoteQuery.data ?? null}
+                  candles={candlesQuery.data ?? undefined}
+                  quote={quoteQuery.data ?? undefined}
                   symbol={tournament.coinSymbol}
                   isLoading={candlesQuery.isLoading}
                 />
@@ -1781,7 +1781,7 @@ export default function TournamentDetailPage() {
                 <p className="text-[10px] text-slate-500 font-black uppercase tracking-widest mb-3">
                   Need USDT?
                 </p>
-                <FaucetButton />
+                <FaucetButton address={account.address} />
               </div>
             )}
           </div>

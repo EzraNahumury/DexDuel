@@ -40,7 +40,7 @@ export function serializeRound(round: RoundLike): SerializedRound {
   return {
     id: round.id,
     roundNo: typeof (round as Round).roundNo === "number" ? (round as Round).roundNo : null,
-    chainRoundId: (round as Round).chainRoundId ?? round.roundId.toString(),
+    chainRoundId: String((round as Round).chainRoundId ?? round.roundId),
     roundId: round.roundId.toString(),
     seasonId: typeof (round as Round).seasonId === "number" ? (round as Round).seasonId : null,
     coinSymbol: round.coinSymbol,

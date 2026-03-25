@@ -16,7 +16,7 @@ export async function GET(
 ) {
     try {
         const { roundId: rawId } = await params;
-        const roundId = BigInt(rawId);
+        const roundId = rawId?.trim();
         const limit = Math.min(
             Math.max(1, Number(req.nextUrl.searchParams.get("limit") ?? 50)),
             200,
@@ -32,7 +32,7 @@ export async function GET(
             ok: true,
             data: predictions.map((p) => ({
                 id: p.id,
-                roundId: p.roundId.toString(),
+                roundId: p.roundId,
                 player: p.player,
                 direction: p.direction,   // 1=UP, 2=DOWN
                 stakeRaw: p.stakeRaw.toString(),

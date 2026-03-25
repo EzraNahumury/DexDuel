@@ -19,7 +19,7 @@ export async function POST(
       return NextResponse.json({ error: "roundId is required" }, { status: 400 });
     }
 
-    const round = await prisma.round.findUnique({ where: { chainRoundId } });
+    const round = await prisma.round.findFirst({ where: { chainRoundId: BigInt(chainRoundId) } });
     if (!round) {
       return NextResponse.json({ error: "Tournament not found" }, { status: 404 });
     }
