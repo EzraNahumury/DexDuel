@@ -1,0 +1,232 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens ─────────────────────────────────────────────── */
+:root {
+  --bg-primary: #020817;
+  --bg-secondary: #0a1628;
+  --bg-tertiary: #111d33;
+  --bg-card: #0c1a2e;
+  --bg-card-hover: #122240;
+
+  --accent: #3b82f6;
+  --accent-light: #60a5fa;
+  --accent-dark: #2563eb;
+  --accent-glow: rgba(59, 130, 246, 0.12);
+  --accent-border: rgba(59, 130, 246, 0.25);
+  --accent-muted: rgba(59, 130, 246, 0.6);
+
+  --cyan: #06b6d4;
+  --cyan-glow: rgba(6, 182, 212, 0.15);
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+
+  --success: #22c55e;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --gold: #facc15;
+  --silver: #cbd5e1;
+  --bronze: #c2410c;
+
+  --border: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+  --border-accent: rgba(59, 130, 246, 0.2);
+
+  --font-heading: 'Panchang', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --background: var(--bg-primary);
+  --foreground: var(--text-primary);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-dark: var(--accent-dark);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+  --color-bg-card: var(--bg-card);
+  --color-bg-card-hover: var(--bg-card-hover);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --color-warning: var(--warning);
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+  --font-sans: var(--font-body);
+}
+
+/* ─── Base ────────────────────────────────────────────────────────── */
+body,
+body * {
+  font-family: var(--font-body);
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-heading {
+  font-family: var(--font-heading) !important;
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 0px; }
+
+/* ─── Scroll Snap Pitch Deck ─────────────────────────────────────── */
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
+}
+
+.pitch-slide {
+  height: 100vh;
+  height: 100dvh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Inner layer that receives clip-path reveals */
+.slide-reveal {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: clip-path;
+}
+
+/* ─── Glass panel ─────────────────────────────────────────────────── */
+.glass-card {
+  background: rgba(12, 26, 46, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ─── Cyber grid ──────────────────────────────────────────────────── */
+.cyber-grid {
+  background-image:
+    linear-gradient(to right, rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* ─── Stat number tabular ─────────────────────────────────────────── */
+.stat-number {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* ─── Keyframe Animations ─────────────────────────────────────────── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 0 4px 16px rgba(59, 130, 246, 0.15); }
+  50%      { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6), 0 8px 32px rgba(6, 182, 212, 0.25); }
+}
+
+@keyframes orb-drift-1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  25%  { transform: translate(-60px, 40px) scale(1.1); }
+  50%  { transform: translate(30px, -30px) scale(0.95); }
+  75%  { transform: translate(-20px, -50px) scale(1.05); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes orb-drift-2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(80px, -40px) scale(1.15); }
+  66%  { transform: translate(-50px, 60px) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes orb-drift-3 {
+  0%   { transform: translate(0, 0) scale(1); opacity: 0.7; }
+  50%  { transform: translate(-70px, -50px) scale(1.2); opacity: 1; }
+  100% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+}
+
+@keyframes scroll-hint {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50%      { transform: translateY(8px); opacity: 1; }
+}
+
+@keyframes line-draw {
+  from { stroke-dashoffset: 100%; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes ring-glow {
+  0%, 100% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.4), 0 0 80px rgba(59, 130, 246, 0.15); }
+  50%      { box-shadow: 0 0 60px rgba(59, 130, 246, 0.7), 0 0 120px rgba(59, 130, 246, 0.3); }
+}
+
+@keyframes node-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+  50%      { box-shadow: 0 0 0 12px rgba(59, 130, 246, 0); }
+}
+
+.animate-float        { animation: float 4s ease-in-out infinite; }
+.animate-pulse-glow   { animation: pulse-glow 2.5s ease-in-out infinite; }
+.animate-orb-1        { animation: orb-drift-1 20s ease-in-out infinite; }
+.animate-orb-2        { animation: orb-drift-2 25s ease-in-out infinite; }
+.animate-orb-3        { animation: orb-drift-3 18s ease-in-out infinite; }
+.animate-scroll-hint  { animation: scroll-hint 2s ease-in-out infinite; }
+.animate-ring-glow    { animation: ring-glow 3s ease-in-out infinite; }
+.animate-node-pulse   { animation: node-pulse 2s ease-in-out infinite; }
+
+/* ─── Feature card hover ──────────────────────────────────────────── */
+.feature-card {
+  transition: transform 0.38s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.38s ease,
+              border-color 0.38s ease;
+}
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(59, 130, 246, 0.15),
+              0 0 0 1px rgba(59, 130, 246, 0.3);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+.feature-card .feature-bar {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.feature-card:hover .feature-bar {
+  transform: scaleX(1);
+}
+.feature-card .feature-bg-glow {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.feature-card:hover .feature-bg-glow {
+  opacity: 1;
+}
+
+/* ─── Slide dot navigation ────────────────────────────────────────── */
+.slide-dot {
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.slide-dot.active {
+  background-color: var(--accent);
+  height: 24px;
+}
