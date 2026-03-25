@@ -182,16 +182,16 @@ export default function LeaderboardPage() {
   const lastUpdated = useMemo(() => rows.reduce((max, row) => Math.max(max, row.lastUpdateMs), 0), [rows]);
 
   return (
-    <div className="relative z-10 min-h-screen overflow-x-hidden bg-slate-950 text-slate-100 antialiased">
+    <div className="relative z-10 min-h-screen overflow-x-hidden text-slate-100 antialiased">
       <div className="pointer-events-none fixed inset-0 z-0">
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(circle at 8% 10%, rgba(45,212,191,0.12), transparent 30%), radial-gradient(circle at 92% 12%, rgba(250,204,21,0.11), transparent 34%), linear-gradient(180deg, #020617 0%, #0b1120 55%, #020617 100%)",
+              "radial-gradient(circle at 8% 10%, rgba(45,212,191,0.08), transparent 30%), radial-gradient(circle at 92% 12%, rgba(250,204,21,0.07), transparent 34%)",
           }}
         />
-        <div className="blue-cyber-grid absolute inset-0 opacity-20" />
+        <div className="blue-cyber-grid absolute inset-0 opacity-15" />
       </div>
 
       <main className="relative z-10 mx-auto max-w-7xl px-5 pb-20 pt-28 md:px-8">

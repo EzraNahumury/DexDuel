@@ -706,16 +706,16 @@ export default function CreateTournamentPage() {
     "w-full rounded-xl border border-slate-700/80 bg-slate-900/70 px-3 py-2.5 text-sm font-semibold text-slate-100 outline-none form-field-glow";
 
   return (
-    <div className="relative z-10 min-h-screen overflow-x-hidden bg-slate-950 text-slate-100 antialiased">
+    <div className="relative z-10 min-h-screen overflow-x-hidden text-slate-100 antialiased">
       <div className="pointer-events-none fixed inset-0 z-0">
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(circle at 10% 12%, rgba(20,184,166,0.16), transparent 33%), radial-gradient(circle at 88% 8%, rgba(56,189,248,0.14), transparent 34%), linear-gradient(180deg, #020617 0%, #0b1120 52%, #020617 100%)",
+              "radial-gradient(circle at 10% 12%, rgba(20,184,166,0.08), transparent 33%), radial-gradient(circle at 88% 8%, rgba(56,189,248,0.08), transparent 34%)",
           }}
         />
-        <div className="blue-cyber-grid absolute inset-0 opacity-20" />
+        <div className="blue-cyber-grid absolute inset-0 opacity-15" />
       </div>
 
       <main className="relative z-10 mx-auto max-w-6xl px-5 pb-20 pt-24 md:px-7">

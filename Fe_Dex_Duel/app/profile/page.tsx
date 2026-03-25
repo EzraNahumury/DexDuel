@@ -185,26 +185,26 @@ function StatCard({
 }) {
   return (
     <div
-      className="animate-card-enter relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900/65 px-4 py-4 shadow-[0_14px_30px_rgba(2,6,23,0.36)] backdrop-blur-xl"
+      className="animate-card-enter group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.03] px-4 py-4 backdrop-blur-xl transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.05]"
       style={{ animationDelay: `${delay}ms` }}
     >
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{
-          background: `radial-gradient(ellipse 80% 60% at 50% 0%, ${color}1a 0%, transparent 65%)`,
+          background: `radial-gradient(ellipse 90% 70% at 50% 0%, ${color}18 0%, transparent 65%)`,
         }}
       />
       <div className="relative z-10">
-        <div className="mb-2 flex items-center gap-2">
-          <span className="material-symbols-outlined text-base" style={{ color }}>
+        <div className="mb-2.5 flex h-9 w-9 items-center justify-center rounded-xl" style={{ backgroundColor: `${color}14`, border: `1px solid ${color}25` }}>
+          <span className="material-symbols-outlined text-lg" style={{ color }}>
             {icon}
           </span>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-            {label}
-          </p>
         </div>
-        <p className="text-2xl font-extrabold tracking-tight" style={{ color }}>
+        <p className="text-2xl font-black tracking-tight" style={{ color }}>
           {value}
+        </p>
+        <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+          {label}
         </p>
       </div>
     </div>
@@ -322,32 +322,59 @@ function TournamentGroupCard({
 
   return (
     <article
-      className="overflow-hidden rounded-2xl border bg-slate-950/60 shadow-[0_12px_24px_rgba(2,6,23,0.36)]"
+      className="group relative overflow-hidden rounded-2xl border backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5"
       style={{
-        borderColor: canClaimPrize ? "rgba(13,242,128,0.4)" : "rgba(71,85,105,0.48)",
+        borderColor: canClaimPrize ? "rgba(13,242,128,0.35)" : "rgba(255,255,255,0.06)",
+        background: canClaimPrize
+          ? "linear-gradient(135deg, rgba(13,242,128,0.06) 0%, rgba(255,255,255,0.02) 100%)"
+          : "rgba(255,255,255,0.025)",
       }}
     >
-      <div className="flex flex-wrap items-center justify-between gap-4 px-5 py-4">
+      {/* Top accent line */}
+      {canClaimPrize && (
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#0df280] to-transparent opacity-60" />
+      )}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        style={{
+          background: canClaimPrize
+            ? "radial-gradient(ellipse at 50% 0%, rgba(13,242,128,0.08), transparent 60%)"
+            : "radial-gradient(ellipse at 50% 0%, rgba(59,130,246,0.06), transparent 60%)",
+        }}
+      />
+
+      <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 px-5 py-4">
         {/* Left: coin + season + result */}
-        <div className="flex items-center gap-4 min-w-0">
+        <div className="flex items-center gap-3.5 min-w-0">
+          <div
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border text-xs font-black"
+            style={{
+              borderColor: userRank >= 1 && userRank <= 3 ? `${rankColors[userRank - 1]}40` : "rgba(255,255,255,0.08)",
+              backgroundColor: userRank >= 1 && userRank <= 3 ? `${rankColors[userRank - 1]}12` : "rgba(255,255,255,0.03)",
+              color: userRank >= 1 && userRank <= 3 ? rankColors[userRank - 1] : "#94a3b8",
+            }}
+          >
+            {group.coinSymbol.slice(0, 3)}
+          </div>
           <div>
             <h4 className="text-sm font-black text-slate-100">
-              {group.coinSymbol}/USDT
-              <span className="text-slate-500 font-bold text-xs ml-2">Season {group.seasonId}</span>
+              {group.coinSymbol}<span className="text-slate-500">/USDT</span>
+              <span className="ml-2 text-[11px] font-semibold text-slate-600">S{group.seasonId}</span>
             </h4>
-            <div className="flex items-center gap-2 mt-1">
-              <span className="text-[10px] text-slate-400 font-bold">
+            <div className="mt-1 flex items-center gap-2">
+              <span className="text-[10px] font-semibold text-slate-500">
                 {wins}/{finished} won
               </span>
               {userRank >= 1 && userRank <= 3 && (
                 <span
-                  className="text-[10px] font-black px-2 py-0.5 rounded-full"
+                  className="rounded-md px-1.5 py-0.5 text-[9px] font-black tracking-wider"
                   style={{
                     color: rankColors[userRank - 1],
-                    backgroundColor: `${rankColors[userRank - 1]}20`,
+                    backgroundColor: `${rankColors[userRank - 1]}15`,
+                    border: `1px solid ${rankColors[userRank - 1]}30`,
                   }}
                 >
-                  {rankLabels[userRank - 1]} Place · {rewardPct}%
+                  {rankLabels[userRank - 1]} · {rewardPct}%
                 </span>
               )}
             </div>
@@ -356,53 +383,50 @@ function TournamentGroupCard({
 
         {/* Right: reward + claim button */}
         <div className="flex items-center gap-4">
-          {/* Reward amount */}
           <div className="text-right">
-            <p className="text-[9px] text-slate-500 font-black uppercase tracking-widest">Reward</p>
+            <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-slate-600">Reward</p>
             <p
-              className="text-lg font-black"
-              style={{ color: rewardRaw > 0 ? "#0df280" : "#64748b" }}
+              className="text-lg font-black tabular-nums"
+              style={{ color: rewardRaw > 0 ? "#0df280" : "#475569" }}
             >
               {rewardRaw > 0 ? `${formatUSDT(rewardRaw)} USDT` : "—"}
             </p>
           </div>
 
-          {/* Claim button */}
           {isPrizeClaimed ? (
-            <span
-              className="rounded-xl px-5 py-2.5 text-[10px] font-black uppercase tracking-widest"
-              style={{ backgroundColor: "rgba(13,242,128,0.1)", color: "#0df280" }}
-            >
-              Claimed ✓
+            <span className="rounded-xl border border-[#0df280]/25 bg-[#0df280]/8 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-[#0df280]">
+              Claimed
             </span>
           ) : (
             <button
               type="button"
               onClick={() => prizeEvent && onClaimTournament([prizeEvent])}
               disabled={!canClaimPrize || isPrizePending}
-              className="rounded-xl px-5 py-2.5 text-[10px] font-black uppercase tracking-widest transition disabled:cursor-not-allowed disabled:opacity-50"
+              className="rounded-xl px-5 py-2.5 text-[10px] font-bold uppercase tracking-[0.12em] transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-40"
               style={
                 canClaimPrize
                   ? {
                       backgroundColor: "#0df280",
                       color: "#0a0a0a",
-                      boxShadow: "0 0 16px rgba(13,242,128,0.25)",
+                      boxShadow: "0 0 20px rgba(13,242,128,0.3), 0 4px 12px rgba(13,242,128,0.15)",
                     }
                   : {
-                      backgroundColor: "rgba(255,255,255,0.05)",
+                      backgroundColor: "rgba(255,255,255,0.04)",
                       color: "#64748b",
-                      border: "1px solid rgba(255,255,255,0.08)",
+                      border: "1px solid rgba(255,255,255,0.06)",
                     }
               }
             >
               {isPrizePending ? "Claiming..." : "Claim"}
             </button>
           )}
-          {prizeClaimError && (
-            <p className="text-[9px] text-red-400 font-bold mt-1">{prizeClaimError}</p>
-          )}
         </div>
       </div>
+      {prizeClaimError && (
+        <div className="border-t border-red-500/15 bg-red-500/5 px-5 py-2">
+          <p className="text-[10px] font-semibold text-red-400">{prizeClaimError}</p>
+        </div>
+      )}
     </article>
   );
 }
@@ -797,84 +821,130 @@ export default function ProfilePage() {
 
   /* ═══════════════════════════════════════════════════════════════ */
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-slate-950 text-slate-100 antialiased">
+    <div className="relative min-h-screen overflow-x-hidden text-slate-100 antialiased">
       <div className="pointer-events-none fixed inset-0 z-0">
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(circle at 10% 10%, rgba(45,212,191,0.13), transparent 32%), radial-gradient(circle at 85% 14%, rgba(56,189,248,0.12), transparent 35%), linear-gradient(180deg, #020617 0%, #0b1120 52%, #020617 100%)",
+              "radial-gradient(circle at 10% 10%, rgba(45,212,191,0.08), transparent 32%), radial-gradient(circle at 85% 14%, rgba(56,189,248,0.08), transparent 35%)",
           }}
         />
-        <div className="blue-cyber-grid absolute inset-0 opacity-20" />
+        <div className="blue-cyber-grid absolute inset-0 opacity-15" />
       </div>
 
-      <main className="relative z-10 mx-auto max-w-7xl px-5 pb-20 pt-24 md:px-8">
+      <main className="relative z-10 mx-auto max-w-6xl px-5 pb-20 pt-28 md:px-8">
+        {/* ── Not connected ── */}
         {!account && (
-          <section className="mx-auto mt-10 max-w-xl rounded-3xl border border-slate-800/80 bg-slate-900/60 p-8 text-center shadow-[0_22px_44px_rgba(2,6,23,0.4)] backdrop-blur-xl">
-            <div className="mx-auto mb-5 flex h-24 w-24 items-center justify-center rounded-2xl border border-teal-400/35 bg-teal-500/12">
-              <span className="material-symbols-outlined text-5xl text-teal-300">account_circle</span>
-            </div>
-            <h1 className="text-4xl font-black tracking-tight">My Arena</h1>
-            <p className="mx-auto mt-3 max-w-sm text-sm text-slate-400">
-              Connect your wallet to view your stats, tournament history, and claimable rewards.
-            </p>
-            <div className="mt-6 flex justify-center">
-              <ConnectButton />
+          <section className="mx-auto mt-10 max-w-lg">
+            <div className="relative overflow-hidden rounded-3xl border border-white/[0.06] bg-white/[0.03] p-10 text-center backdrop-blur-2xl">
+              <div
+                className="pointer-events-none absolute inset-0"
+                style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(45,212,191,0.08), transparent 55%)" }}
+              />
+              <div className="relative z-10">
+                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl border border-cyan-400/25 bg-cyan-500/8">
+                  <span className="material-symbols-outlined text-[44px] text-cyan-300">account_circle</span>
+                </div>
+                <h1 className="text-3xl font-black tracking-tight">My Profile</h1>
+                <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-slate-400">
+                  Connect your wallet to view stats, tournament history, and claimable rewards.
+                </p>
+                <div className="mt-7 flex justify-center">
+                  <ConnectButton />
+                </div>
+              </div>
             </div>
           </section>
         )}
 
+        {/* ── Connected ── */}
         {account && (
           <>
-            <section className="mb-6 rounded-3xl border border-slate-800/80 bg-slate-900/65 p-6 shadow-[0_22px_44px_rgba(2,6,23,0.42)] backdrop-blur-xl md:p-8">
-              <div className="grid gap-6 lg:grid-cols-[1fr_auto]">
-                <div className="flex items-start gap-4">
-                  <div className="relative">
-                    <div className="flex h-20 w-20 items-center justify-center rounded-2xl border border-teal-400/45 bg-teal-500/14 text-2xl font-black text-teal-200">
-                      {initial}
-                    </div>
-                    {myRow && (
-                      <span className="absolute -bottom-2 -right-2 rounded-full border border-slate-700 bg-slate-900 px-2 py-0.5 text-[10px] font-semibold text-slate-300">
-                        {rankLabel(myRow.rank)}
-                      </span>
-                    )}
-                  </div>
+            {/* Hero Profile Header */}
+            <section className="mb-8">
+              <div className="relative overflow-hidden rounded-3xl border border-white/[0.06] bg-white/[0.03] backdrop-blur-2xl">
+                {/* Ambient glow */}
+                <div
+                  className="pointer-events-none absolute inset-0"
+                  style={{ background: "radial-gradient(ellipse 70% 50% at 30% 0%, rgba(45,212,191,0.07), transparent 60%), radial-gradient(ellipse 50% 40% at 80% 100%, rgba(59,130,246,0.06), transparent 50%)" }}
+                />
 
-                  <div className="min-w-0">
-                    <div className="mb-1 flex flex-wrap items-center gap-2">
-                      <h1 className="text-3xl font-black tracking-tight">
-                        My <span className="text-cyan-300">Arena</span>
-                      </h1>
-                      {myRow && (
-                        <span
-                          className="rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em]"
+                <div className="relative z-10 p-6 md:p-8">
+                  <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                    {/* Left — Avatar + Info */}
+                    <div className="flex items-start gap-5">
+                      <div className="relative shrink-0">
+                        <div
+                          className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl border text-2xl font-black"
                           style={{
-                            color: rankColor(myRow.rank),
-                            backgroundColor: `${rankColor(myRow.rank)}22`,
+                            borderColor: myRow ? `${rankColor(myRow.rank)}40` : "rgba(255,255,255,0.08)",
+                            background: myRow ? `linear-gradient(135deg, ${rankColor(myRow.rank)}15 0%, transparent 70%)` : "rgba(255,255,255,0.03)",
+                            color: myRow ? rankColor(myRow.rank) : "#67e8f9",
                           }}
                         >
-                          Global #{myRow.rank}
-                        </span>
-                      )}
-                    </div>
-                    <p className="truncate font-mono text-xs text-slate-400">{account.address}</p>
-                    <p className="mt-2 text-sm text-slate-400">
-                      {playerGroups.length} tournaments - {joinedEvents.length} rounds - {wins} wins - {winRate}% win rate
-                    </p>
-                  </div>
-                </div>
+                          {initial}
+                        </div>
+                        {myRow && (
+                          <span
+                            className="absolute -bottom-1.5 -right-1.5 flex h-6 min-w-6 items-center justify-center rounded-full border px-1 text-[9px] font-black"
+                            style={{
+                              color: rankColor(myRow.rank),
+                              borderColor: `${rankColor(myRow.rank)}50`,
+                              backgroundColor: "#0f172a",
+                            }}
+                          >
+                            {rankLabel(myRow.rank)}
+                          </span>
+                        )}
+                      </div>
 
-                <div className="rounded-2xl border border-teal-400/28 bg-teal-500/10 p-4">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">USDT Balance</p>
-                  <p className="mt-1 text-4xl font-black text-teal-200">{balance?.formatted ?? "0.00"}</p>
-                  <p className="mb-3 text-[10px] text-slate-500">USDT</p>
-                  <FaucetButton address={account.address} onSuccess={refetchBalance} />
+                      <div className="min-w-0">
+                        <div className="mb-1 flex flex-wrap items-center gap-2.5">
+                          <h1 className="text-2xl font-black tracking-tight md:text-3xl">
+                            My <span className="text-cyan-300">Profile</span>
+                          </h1>
+                          {myRow && (
+                            <span
+                              className="rounded-md px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em]"
+                              style={{
+                                color: rankColor(myRow.rank),
+                                backgroundColor: `${rankColor(myRow.rank)}15`,
+                                border: `1px solid ${rankColor(myRow.rank)}30`,
+                              }}
+                            >
+                              Global {rankLabel(myRow.rank)}
+                            </span>
+                          )}
+                        </div>
+                        <p className="truncate font-mono text-xs text-slate-500">{account.address}</p>
+                        <div className="mt-2.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] font-semibold text-slate-500">
+                          <span>{playerGroups.length} tournaments</span>
+                          <span className="h-0.5 w-0.5 rounded-full bg-slate-600" />
+                          <span>{joinedEvents.length} rounds</span>
+                          <span className="h-0.5 w-0.5 rounded-full bg-slate-600" />
+                          <span className="text-teal-400">{wins} wins</span>
+                          <span className="h-0.5 w-0.5 rounded-full bg-slate-600" />
+                          <span style={{ color: winRate >= 50 ? "#2dd4bf" : "#fb7185" }}>{winRate}% win rate</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right — Balance */}
+                    <div className="shrink-0 rounded-2xl border border-white/[0.06] bg-white/[0.03] p-5 backdrop-blur-md lg:min-w-[200px]">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">USDT Balance</p>
+                      <p className="mt-1 text-3xl font-black tabular-nums text-teal-300">{balance?.formatted ?? "0.00"}</p>
+                      <div className="mt-3">
+                        <FaucetButton address={account.address} onSuccess={refetchBalance} />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
 
-            <section className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+            {/* Stat Cards */}
+            <section className="mb-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
               <StatCard label="Tournaments" value={playerGroups.length} icon="sports_esports" color="#38bdf8" delay={0} />
               <StatCard label="Wins" value={wins} icon="emoji_events" color="#2dd4bf" delay={50} />
               <StatCard label="Win Rate" value={`${winRate}%`} icon="percent" color={winRate >= 50 ? "#2dd4bf" : "#fb7185"} delay={100} />
@@ -883,97 +953,102 @@ export default function ProfilePage() {
               <StatCard label="Global Rank" value={myRow ? rankLabel(myRow.rank) : "-"} icon="leaderboard" color={myRow ? rankColor(myRow.rank) : "#94a3b8"} delay={250} />
             </section>
 
+            {/* Prediction Split */}
             {joinedEvents.length > 0 && (
-              <section className="mb-6 rounded-2xl border border-slate-800/80 bg-slate-900/65 p-5 shadow-[0_14px_30px_rgba(2,6,23,0.34)] backdrop-blur-xl">
-                <div className="mb-3 flex items-center justify-between">
-                  <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Prediction Split</h3>
-                  <p className="text-xs text-slate-500">{wins}/{totalFinished} finished</p>
-                </div>
-
-                <div className="flex flex-col gap-4 md:flex-row md:items-center">
+              <section className="mb-8 overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl">
+                <div className="flex flex-col gap-5 p-5 md:flex-row md:items-center md:p-6">
                   <div className="flex-1">
+                    <h3 className="mb-3 text-[11px] font-bold uppercase tracking-[0.14em] text-slate-500">Prediction Split</h3>
                     <div className="mb-2 flex justify-between text-xs font-semibold">
-                      <span className="text-teal-300">UP - {upPredictions} ({upPct}%)</span>
-                      <span className="text-rose-300">DOWN - {downPredictions} ({100 - upPct}%)</span>
+                      <span className="text-teal-300">UP — {upPredictions} ({upPct}%)</span>
+                      <span className="text-rose-400">DOWN — {downPredictions} ({100 - upPct}%)</span>
                     </div>
-                    <div className="h-3 overflow-hidden rounded-full bg-rose-500/20">
+                    <div className="h-2.5 overflow-hidden rounded-full bg-white/[0.04]">
                       <div
-                        className="h-full rounded-full"
+                        className="h-full rounded-full transition-all duration-700"
                         style={{
                           width: `${upPct}%`,
                           background: "linear-gradient(90deg, #14b8a6, #2dd4bf)",
                         }}
                       />
                     </div>
+                    <p className="mt-2 text-[11px] text-slate-600">{wins}/{totalFinished} finished rounds</p>
                   </div>
 
-                  <div className="rounded-xl border border-slate-800/80 bg-slate-950/70 px-4 py-3 text-right">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">Win Rate</p>
-                    <p className="text-3xl font-black" style={{ color: winRate >= 50 ? "#2dd4bf" : "#fb7185" }}>
-                      {winRate}%
+                  <div className="flex flex-col items-center rounded-xl border border-white/[0.06] bg-white/[0.03] px-6 py-4">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">Win Rate</p>
+                    <p className="mt-1 text-4xl font-black tabular-nums" style={{ color: winRate >= 50 ? "#2dd4bf" : "#fb7185" }}>
+                      {winRate}<span className="text-lg">%</span>
                     </p>
                   </div>
                 </div>
               </section>
             )}
 
+            {/* Claimable Banner */}
             {totalClaimable > 0 && (
-              <section className="mb-6 flex flex-wrap items-center gap-3 rounded-2xl border border-teal-400/35 bg-teal-500/10 px-4 py-3.5">
-                <span className="h-2 w-2 rounded-full animate-live-dot bg-teal-300" />
-                <p className="flex-1 text-sm text-slate-200">
-                  <span className="font-semibold text-teal-200">{totalClaimable} payout{totalClaimable !== 1 ? "s" : ""}</span>{" "}
-                  ready to claim.
-                  {claimablePrizeCount > 0 && (
-                    <span className="text-slate-300">
-                      {" "}
-                      Top 1-3 prize pool: <span className="font-semibold text-teal-200">{formatUSDT(totalClaimablePrizeRaw)} USDT</span>
-                    </span>
-                  )}
-                </p>
-                <span className="material-symbols-outlined text-teal-300">arrow_downward</span>
+              <section className="mb-6 overflow-hidden rounded-2xl border border-[#0df280]/25 bg-[#0df280]/[0.04]">
+                <div className="flex flex-wrap items-center gap-3 px-5 py-4">
+                  <span className="h-2 w-2 shrink-0 rounded-full animate-live-dot bg-[#0df280]" />
+                  <p className="flex-1 text-sm text-slate-200">
+                    <span className="font-bold text-[#0df280]">{totalClaimable} payout{totalClaimable !== 1 ? "s" : ""}</span>{" "}
+                    ready to claim
+                    {claimablePrizeCount > 0 && (
+                      <span className="text-slate-400">
+                        {" "}· Prize pool: <span className="font-bold text-[#0df280]">{formatUSDT(totalClaimablePrizeRaw)} USDT</span>
+                      </span>
+                    )}
+                  </p>
+                  <span className="material-symbols-outlined text-[#0df280]/60">arrow_downward</span>
+                </div>
               </section>
             )}
 
-            <section className="mb-6 overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900/65 shadow-[0_16px_34px_rgba(2,6,23,0.38)] backdrop-blur-xl">
-              <header className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800/80 px-5 py-4">
-                <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-base text-cyan-300">history</span>
-                  <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Tournament History</h3>
+            {/* Tournament History */}
+            <section className="mb-8 overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl">
+              <header className="flex flex-wrap items-center justify-between gap-3 border-b border-white/[0.05] px-5 py-4">
+                <div className="flex items-center gap-2.5">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-cyan-400/20 bg-cyan-500/8">
+                    <span className="material-symbols-outlined text-sm text-cyan-300">history</span>
+                  </div>
+                  <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-slate-400">Tournament History</h3>
                   {playerGroups.length > 0 && (
-                    <span className="rounded-full bg-slate-800/80 px-2 py-0.5 text-[10px] font-semibold text-slate-400">
+                    <span className="rounded-md bg-white/[0.05] px-2 py-0.5 text-[10px] font-bold tabular-nums text-slate-400">
                       {playerGroups.length}
                     </span>
                   )}
                 </div>
                 <Link
                   href="/tournaments"
-                  className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.12em] text-teal-300 transition hover:text-teal-200"
+                  className="inline-flex items-center gap-1 rounded-lg border border-cyan-400/20 bg-cyan-500/8 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-cyan-300 transition hover:bg-cyan-500/15"
                 >
                   Join New
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>
                 </Link>
               </header>
 
-              <div className="border-b border-slate-800/70 px-5 py-2 text-[11px] text-slate-500">
-                Prize split: Rank 1 = 50%, Rank 2 = 30%, Rank 3 = 20%.
+              <div className="border-b border-white/[0.04] px-5 py-2 text-[10px] font-semibold text-slate-600">
+                Prize: 1st = 50% · 2nd = 30% · 3rd = 20%
               </div>
 
               {(joinedEventsQuery.isLoading || tournamentsQuery.isLoading) && (
                 <div className="space-y-3 p-5">
                   {[...Array(3)].map((_, index) => (
-                    <div key={index} className="h-24 rounded-xl animate-shimmer" />
+                    <div key={index} className="h-20 rounded-xl animate-shimmer" />
                   ))}
                 </div>
               )}
 
               {!joinedEventsQuery.isLoading && !tournamentsQuery.isLoading && playerGroups.length === 0 && (
-                <div className="py-16 text-center">
-                  <span className="material-symbols-outlined mb-3 block text-5xl text-slate-700">casino</span>
-                  <p className="font-semibold text-slate-300">No tournaments yet</p>
+                <div className="py-20 text-center">
+                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/[0.06] bg-white/[0.03]">
+                    <span className="material-symbols-outlined text-3xl text-slate-600">casino</span>
+                  </div>
+                  <p className="font-bold text-slate-300">No tournaments yet</p>
                   <p className="mt-1 text-sm text-slate-500">Join a tournament to start earning rewards.</p>
                   <Link
                     href="/tournaments"
-                    className="mt-6 inline-flex items-center gap-2 rounded-xl border border-teal-400/40 bg-teal-500/14 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-teal-200 transition hover:bg-teal-500/22"
+                    className="mt-6 inline-flex items-center gap-2 rounded-xl border border-cyan-400/25 bg-cyan-500/8 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-cyan-300 transition hover:bg-cyan-500/15"
                   >
                     <span className="material-symbols-outlined text-sm">sports_esports</span>
                     Browse Tournaments
@@ -982,7 +1057,7 @@ export default function ProfilePage() {
               )}
 
               {!joinedEventsQuery.isLoading && !tournamentsQuery.isLoading && playerGroups.length > 0 && (
-                <div className="space-y-3 p-4">
+                <div className="space-y-2.5 p-4">
                   {playerGroups.map(({ group, playerRounds }) => (
                     <TournamentGroupCard
                       key={group.seasonId}
@@ -1000,35 +1075,36 @@ export default function ProfilePage() {
               )}
             </section>
 
-            <section className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {/* Quick Links */}
+            <section className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               <Link
                 href="/leaderboard"
-                className="group flex items-center gap-3 rounded-2xl border border-slate-800/80 bg-slate-900/60 p-5 shadow-[0_12px_24px_rgba(2,6,23,0.28)] transition hover:border-amber-400/35 hover:bg-slate-900/75"
+                className="group flex items-center gap-3.5 rounded-2xl border border-white/[0.06] bg-white/[0.03] p-5 backdrop-blur-md transition-all duration-300 hover:border-amber-400/25 hover:bg-white/[0.05]"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-amber-400/35 bg-amber-500/12">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-amber-400/25 bg-amber-500/8">
                   <span className="material-symbols-outlined text-xl text-amber-300">emoji_events</span>
                 </div>
-                <div className="flex-1">
-                  <p className="text-sm font-semibold text-slate-100">Global Leaderboard</p>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-bold text-slate-100">Global Leaderboard</p>
                   <p className="text-xs text-slate-500">
-                    {myRow ? `You are ranked #${myRow.rank} globally.` : "See how you rank globally."}
+                    {myRow ? `You are ranked ${rankLabel(myRow.rank)} globally` : "See how you rank globally"}
                   </p>
                 </div>
-                <span className="material-symbols-outlined text-slate-500 transition group-hover:text-slate-300">arrow_forward</span>
+                <span className="material-symbols-outlined text-slate-600 transition group-hover:translate-x-0.5 group-hover:text-slate-400">arrow_forward</span>
               </Link>
 
               <Link
                 href="/tournaments"
-                className="group flex items-center gap-3 rounded-2xl border border-slate-800/80 bg-slate-900/60 p-5 shadow-[0_12px_24px_rgba(2,6,23,0.28)] transition hover:border-teal-400/35 hover:bg-slate-900/75"
+                className="group flex items-center gap-3.5 rounded-2xl border border-white/[0.06] bg-white/[0.03] p-5 backdrop-blur-md transition-all duration-300 hover:border-teal-400/25 hover:bg-white/[0.05]"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-teal-400/35 bg-teal-500/12">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-teal-400/25 bg-teal-500/8">
                   <span className="material-symbols-outlined text-xl text-teal-300">sports_esports</span>
                 </div>
-                <div className="flex-1">
-                  <p className="text-sm font-semibold text-slate-100">Browse Tournaments</p>
-                  <p className="text-xs text-slate-500">Join live rounds and earn USDT prizes.</p>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-bold text-slate-100">Browse Tournaments</p>
+                  <p className="text-xs text-slate-500">Join live rounds and earn USDT prizes</p>
                 </div>
-                <span className="material-symbols-outlined text-slate-500 transition group-hover:text-slate-300">arrow_forward</span>
+                <span className="material-symbols-outlined text-slate-600 transition group-hover:translate-x-0.5 group-hover:text-slate-400">arrow_forward</span>
               </Link>
             </section>
           </>

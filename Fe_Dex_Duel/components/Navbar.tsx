@@ -21,66 +21,52 @@ export default function Navbar() {
   );
 
   const navLinks = [
-    { href: "/tournaments", label: "Tournaments",  icon: "trophy" },
-    { href: "/arena",       label: "Create",        icon: "add_circle" },
-    { href: "/leaderboard", label: "Leaderboard",  icon: "workspace_premium" },
-    { href: "/profile",     label: "My Arena",     icon: "person" },
+    { href: "/tournaments", label: "Tournaments", icon: "trophy" },
+    { href: "/arena", label: "Create", icon: "add_circle" },
+    { href: "/leaderboard", label: "Leaderboard", icon: "workspace_premium" },
+    { href: "/profile", label: "My Arena", icon: "person" },
   ];
 
   return (
     <>
-      {/* Top accent gradient line */}
-      <div
-        className="fixed top-0 left-3 right-3 sm:left-6 sm:right-6 z-50 h-[2px] rounded-full pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to right, transparent 0%, rgba(59,130,246,0) 10%, rgba(59,130,246,0.92) 35%, rgba(34,211,238,0.92) 65%, rgba(6,182,212,0) 90%, transparent 100%)",
-        }}
-      />
-
       <nav
-        className="fixed top-2 left-3 right-3 sm:left-6 sm:right-6 z-50 backdrop-blur-2xl rounded-2xl"
+        className="fixed top-3 left-4 right-4 z-50 rounded-2xl sm:left-6 sm:right-6 lg:left-8 lg:right-8"
         style={{
-          background:
-            "linear-gradient(120deg, rgba(2,8,23,0.94), rgba(15,23,42,0.9) 65%, rgba(14,28,52,0.92))",
-          border: "1px solid rgba(56,189,248,0.2)",
-          boxShadow:
-            "0 18px 40px rgba(2,8,23,0.45), inset 0 1px 0 rgba(148,163,184,0.08)",
+          background: "rgba(10,15,28,0.65)",
+          backdropFilter: "blur(20px) saturate(1.4)",
+          WebkitBackdropFilter: "blur(20px) saturate(1.4)",
+          border: "1px solid rgba(255,255,255,0.06)",
+          boxShadow: "0 8px 32px rgba(0,0,0,0.35), 0 0 0 0.5px rgba(255,255,255,0.03) inset",
         }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-
-          {/* ── Left: Logo + nav links ── */}
-          <div className="flex items-center gap-6">
-
+        <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-5">
+          {/* ── Left: Logo + Nav ── */}
+          <div className="flex items-center gap-5">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group shrink-0">
+            <Link href="/" className="group flex items-center gap-2.5 shrink-0">
               <div className="relative">
-                {/* Hover glow behind box */}
                 <div
-                  className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                  style={{ background: "rgba(59,130,246,0.35)", filter: "blur(10px)" }}
+                  className="absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  style={{ background: "rgba(59,130,246,0.3)", filter: "blur(10px)" }}
                 />
                 <div
-                  className="relative w-8 h-8 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110"
+                  className="relative flex h-8 w-8 items-center justify-center rounded-xl transition-transform duration-200 group-hover:scale-105"
                   style={{
-                    background: "linear-gradient(135deg, rgba(37,99,235,0.3), rgba(8,145,178,0.2))",
-                    border: "1px solid rgba(59,130,246,0.45)",
+                    background: "linear-gradient(135deg, rgba(59,130,246,0.15), rgba(6,182,212,0.1))",
+                    border: "1px solid rgba(59,130,246,0.3)",
                   }}
                 >
-                  <span className="material-symbols-outlined" style={{ color: "#60a5fa", fontSize: 17 }}>
+                  <span className="material-symbols-outlined" style={{ color: "#60a5fa", fontSize: 16 }}>
                     swords
                   </span>
                 </div>
               </div>
               <div className="flex flex-col leading-none">
-                <span className="text-[13px] font-black tracking-tighter uppercase italic text-white leading-tight">
-                  DEX
-                </span>
+                <span className="text-[12px] font-black uppercase italic tracking-tight text-white">DEX</span>
                 <span
-                  className="text-[13px] font-black tracking-tighter uppercase italic leading-tight"
+                  className="text-[12px] font-black uppercase italic tracking-tight"
                   style={{
-                    background: "linear-gradient(135deg, #3b82f6, #06b6d4)",
+                    background: "linear-gradient(135deg, #60a5fa, #22d3ee)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                   }}
@@ -90,110 +76,89 @@ export default function Navbar() {
               </div>
             </Link>
 
-            {/* Divider */}
-            <div className="hidden lg:block h-5 w-px" style={{ background: "rgba(255,255,255,0.08)" }} />
+            {/* Separator */}
+            <div className="hidden h-4 w-px bg-white/[0.06] lg:block" />
 
-            {/* Desktop nav */}
-            <nav className="hidden lg:flex items-center gap-1">
+            {/* Desktop Nav */}
+            <div className="hidden items-center gap-0.5 lg:flex">
               {navLinks.map(({ href, label, icon }) => {
-                const active =
-                  pathname === href || (href !== "/" && pathname.startsWith(href));
+                const active = pathname === href || (href !== "/" && pathname.startsWith(href));
                 return (
                   <Link
                     key={href}
                     href={href}
-                    className="relative flex items-center gap-2 px-3.5 py-2 rounded-lg text-[11px] font-black uppercase tracking-widest transition-all duration-200"
-                    style={
-                      active
-                        ? {
-                            color: "#fff",
-                            background:
-                              "linear-gradient(135deg, rgba(59,130,246,0.2), rgba(34,211,238,0.12))",
-                            border: "1px solid rgba(59,130,246,0.34)",
-                          }
-                        : {
-                            color: "#94a3b8",
-                            border: "1px solid transparent",
-                          }
-                    }
-                    onMouseEnter={e => {
+                    className="nav-link relative flex items-center gap-1.5 rounded-lg px-3 py-2 text-[11px] font-bold uppercase tracking-[0.08em] transition-all duration-200"
+                    style={{
+                      color: active ? "#fff" : "#64748b",
+                      background: active ? "rgba(255,255,255,0.07)" : "transparent",
+                    }}
+                    onMouseEnter={(e) => {
                       if (!active) {
-                        (e.currentTarget as HTMLElement).style.color = "#e2e8f0";
-                        (e.currentTarget as HTMLElement).style.background = "rgba(148,163,184,0.12)";
+                        e.currentTarget.style.color = "#cbd5e1";
+                        e.currentTarget.style.background = "rgba(255,255,255,0.04)";
                       }
                     }}
-                    onMouseLeave={e => {
+                    onMouseLeave={(e) => {
                       if (!active) {
-                        (e.currentTarget as HTMLElement).style.color = "#94a3b8";
-                        (e.currentTarget as HTMLElement).style.background = "transparent";
+                        e.currentTarget.style.color = "#64748b";
+                        e.currentTarget.style.background = "transparent";
                       }
                     }}
                   >
                     <span
                       className="material-symbols-outlined"
-                      style={{ fontSize: 14, color: active ? "#3b82f6" : "inherit" }}
+                      style={{ fontSize: 14, color: active ? "#60a5fa" : "inherit" }}
                     >
                       {icon}
                     </span>
                     {label}
-                    {/* Active underline glow */}
                     {active && (
                       <span
-                        className="absolute bottom-0 left-3 right-3 h-px rounded-full pointer-events-none"
+                        className="absolute bottom-0 left-2.5 right-2.5 h-[2px] rounded-full"
                         style={{
-                          background: "linear-gradient(to right, transparent, #3b82f6, #06b6d4, transparent)",
+                          background: "linear-gradient(90deg, transparent, #3b82f6 30%, #22d3ee 70%, transparent)",
                         }}
                       />
                     )}
                   </Link>
                 );
               })}
-            </nav>
+            </div>
           </div>
 
-          {/* ── Right: network + balance + wallet + mobile toggle ── */}
+          {/* ── Right: Status + Wallet ── */}
           <div className="flex items-center gap-2">
-
-            {/* OneChain live badge */}
+            {/* Network Badge */}
             <div
-              className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg shrink-0"
+              className="hidden items-center gap-1.5 rounded-lg px-2.5 py-1.5 md:flex"
               style={{
-                background: "rgba(13,242,128,0.06)",
-                border: "1px solid rgba(13,242,128,0.18)",
+                background: "rgba(13,242,128,0.04)",
+                border: "1px solid rgba(13,242,128,0.12)",
               }}
             >
-              <span
-                className="w-1.5 h-1.5 rounded-full inline-block shrink-0 animate-pulse"
-                style={{ backgroundColor: "#0df280" }}
-              />
-              <span
-                className="text-[9px] font-black uppercase tracking-widest"
-                style={{ color: "#0df280" }}
-              >
+              <span className="h-1.5 w-1.5 shrink-0 animate-pulse rounded-full" style={{ backgroundColor: "#0df280" }} />
+              <span className="text-[9px] font-bold uppercase tracking-[0.1em]" style={{ color: "#0df280" }}>
                 OneChain
               </span>
             </div>
 
-            {/* Balance + faucet (only when connected) */}
+            {/* Balance + Faucet */}
             {account && mounted && (
-              <div className="hidden sm:flex items-center gap-2">
+              <div className="hidden items-center gap-1.5 sm:flex">
                 <div
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg"
+                  className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5"
                   style={{
-                    background: "rgba(255,255,255,0.05)",
-                    border: "1px solid rgba(255,255,255,0.08)",
+                    background: "rgba(255,255,255,0.03)",
+                    border: "1px solid rgba(255,255,255,0.06)",
                   }}
                 >
-                  <span
-                    className="material-symbols-outlined"
-                    style={{ color: "#3b82f6", fontSize: 13 }}
-                  >
+                  <span className="material-symbols-outlined" style={{ color: "#60a5fa", fontSize: 13 }}>
                     toll
                   </span>
-                  <span className="text-[11px] font-black text-slate-300">
+                  <span className="text-[11px] font-bold tabular-nums text-slate-300">
                     {balance ? balance.formatted : "..."}
                   </span>
-                  <span className="text-[9px] font-bold text-slate-600 uppercase tracking-wider">
+                  <span className="text-[9px] font-semibold uppercase tracking-wider text-slate-600">
                     USDT
                   </span>
                 </div>
@@ -201,7 +166,7 @@ export default function Navbar() {
               </div>
             )}
 
-            {/* Wallet connect / menu */}
+            {/* Wallet */}
             <div className="flex items-center">
               {account ? (
                 <WalletMenu />
@@ -209,79 +174,59 @@ export default function Navbar() {
                 <ConnectButton
                   connectText={
                     <span className="flex items-center gap-1.5">
-                      <span
-                        className="material-symbols-outlined"
-                        style={{ fontSize: 16, lineHeight: 1 }}
-                      >
+                      <span className="material-symbols-outlined" style={{ fontSize: 15, lineHeight: 1 }}>
                         account_balance_wallet
                       </span>
-                      Connect Wallet
+                      Connect
                     </span>
                   }
-                  className="rounded-xl px-4 py-2 text-[13px] font-black tracking-wide transition-all"
+                  className="rounded-xl px-4 py-2 text-[12px] font-bold tracking-wide transition-all duration-200"
                   style={{
-                    background: "rgba(59,130,246,0.16)",
+                    background: "linear-gradient(135deg, rgba(59,130,246,0.2), rgba(34,211,238,0.12))",
                     color: "#e2e8f0",
-                    border: "1px solid rgba(59,130,246,0.42)",
-                    boxShadow:
-                      "0 10px 24px rgba(2,132,199,0.18), inset 0 1px 0 rgba(255,255,255,0.08)",
+                    border: "1px solid rgba(59,130,246,0.3)",
                   }}
                 />
               )}
             </div>
 
-            {/* Mobile hamburger */}
+            {/* Mobile Toggle */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden flex items-center justify-center w-9 h-9 rounded-lg transition-all"
+              className="flex h-8 w-8 items-center justify-center rounded-lg transition-all lg:hidden"
               style={{
-                background: "rgba(148,163,184,0.1)",
-                border: "1px solid rgba(59,130,246,0.25)",
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(255,255,255,0.06)",
               }}
             >
-              {mobileOpen
-                ? <X size={16} className="text-slate-300" />
-                : <Menu size={16} className="text-slate-300" />}
+              {mobileOpen ? <X size={15} className="text-slate-400" /> : <Menu size={15} className="text-slate-400" />}
             </button>
           </div>
         </div>
 
-        {/* ── Mobile menu ── */}
+        {/* ── Mobile Menu ── */}
         {mobileOpen && (
           <div
-            className="lg:hidden px-4 pb-5 pt-3"
-            style={{
-              borderTop: "1px solid rgba(59,130,246,0.12)",
-              background: "rgba(2,8,23,0.9)",
-            }}
+            className="lg:hidden px-4 pb-4 pt-3"
+            style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}
           >
-            <div className="flex flex-col gap-1 mb-4">
+            <div className="mb-3 flex flex-col gap-0.5">
               {navLinks.map(({ href, label, icon }) => {
-                const active =
-                  pathname === href || (href !== "/" && pathname.startsWith(href));
+                const active = pathname === href || (href !== "/" && pathname.startsWith(href));
                 return (
                   <Link
                     key={href}
                     href={href}
                     onClick={() => setMobileOpen(false)}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all"
-                    style={
-                      active
-                        ? {
-                            color: "#fff",
-                            background:
-                              "linear-gradient(135deg, rgba(59,130,246,0.2), rgba(34,211,238,0.12))",
-                            border: "1px solid rgba(59,130,246,0.3)",
-                          }
-                        : {
-                            color: "#94a3b8",
-                            border: "1px solid transparent",
-                          }
-                    }
+                    className="flex items-center gap-3 rounded-xl px-4 py-3 text-xs font-bold uppercase tracking-[0.08em] transition-all"
+                    style={{
+                      color: active ? "#fff" : "#64748b",
+                      background: active ? "rgba(255,255,255,0.06)" : "transparent",
+                    }}
                   >
                     <span
                       className="material-symbols-outlined"
-                      style={{ fontSize: 16, color: active ? "#3b82f6" : "inherit" }}
+                      style={{ fontSize: 16, color: active ? "#60a5fa" : "inherit" }}
                     >
                       {icon}
                     </span>
@@ -294,13 +239,10 @@ export default function Navbar() {
             {account && (
               <div
                 className="flex items-center justify-between px-2 pt-3"
-                style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
+                style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}
               >
-                <div className="flex items-center gap-2 text-xs font-black text-slate-400">
-                  <span
-                    className="material-symbols-outlined"
-                    style={{ fontSize: 14, color: "#3b82f6" }}
-                  >
+                <div className="flex items-center gap-2 text-xs font-bold text-slate-500">
+                  <span className="material-symbols-outlined" style={{ fontSize: 14, color: "#60a5fa" }}>
                     toll
                   </span>
                   {balance ? `${balance.formatted} USDT` : "..."}

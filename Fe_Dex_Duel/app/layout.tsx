@@ -4,6 +4,7 @@ import "./globals.css";
 import "@onelabs/dapp-kit/dist/index.css";
 import Providers from "./providers";
 import Navbar from "@/components/Navbar";
+import FooterWrapper from "@/components/FooterWrapper";
 import WebGLWrapper from "@/components/webgl/WebGLWrapper";
 
 export const metadata: Metadata = {
@@ -37,6 +38,7 @@ export default function RootLayout({
           <WebGLWrapper />
           <Navbar />
           {children}
+          <FooterWrapper />
         </Providers>
       </body>
     </html>

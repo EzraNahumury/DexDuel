@@ -44,7 +44,6 @@ export function WalletMenu({ showCopy = true }: WalletMenuProps) {
         setOpen(false);
       }
     }
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
@@ -67,7 +66,6 @@ export function WalletMenu({ showCopy = true }: WalletMenuProps) {
       setSwitchError("Selected account is not available in this wallet session.");
       return;
     }
-
     setSwitchError(null);
     try {
       await switchAccount({ account: target });
@@ -97,59 +95,62 @@ export function WalletMenu({ showCopy = true }: WalletMenuProps) {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen((value) => !value)}
-        className="px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2 hover:opacity-90 transition-all"
+        className="flex items-center gap-2 rounded-xl px-3.5 py-2 text-[12px] font-bold transition-all duration-200 hover:bg-white/[0.06]"
         style={{
-          background: "rgba(59,130,246,0.16)",
-          color: "#e2e8f0",
-          border: "1px solid rgba(59,130,246,0.42)",
-          boxShadow:
-            "0 10px 24px rgba(2,132,199,0.18), inset 0 1px 0 rgba(255,255,255,0.08)",
+          background: "rgba(255,255,255,0.04)",
+          color: "#cbd5e1",
+          border: "1px solid rgba(255,255,255,0.08)",
         }}
       >
-        <span className="material-symbols-outlined text-sm leading-none">
+        <span className="material-symbols-outlined" style={{ fontSize: 14, color: "#60a5fa" }}>
           account_balance_wallet
         </span>
-        {currentAccountDisplay}
-        <span className="material-symbols-outlined text-sm leading-none">
+        <span className="tabular-nums">{currentAccountDisplay}</span>
+        <span className="material-symbols-outlined text-slate-500" style={{ fontSize: 14 }}>
           {open ? "expand_less" : "expand_more"}
         </span>
       </button>
 
       {open && (
         <div
-          className="absolute right-0 top-full mt-2 w-72 rounded-xl overflow-hidden z-[100] shadow-2xl animate-fade-in-up"
+          className="absolute right-0 top-full z-[100] mt-2 w-72 overflow-hidden rounded-2xl animate-fade-in-up"
           style={{
-            background: "linear-gradient(135deg, #0b1220, #111b2f)",
-            border: "1px solid rgba(59,130,246,0.25)",
+            background: "rgba(10,15,28,0.92)",
+            backdropFilter: "blur(24px)",
+            WebkitBackdropFilter: "blur(24px)",
+            border: "1px solid rgba(255,255,255,0.07)",
+            boxShadow: "0 16px 48px rgba(0,0,0,0.5), 0 0 0 0.5px rgba(255,255,255,0.03) inset",
           }}
         >
-          <div className="px-4 py-3 border-b border-white/10">
-            <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-1.5">
+          {/* Connected wallet */}
+          <div className="border-b border-white/[0.05] px-4 py-3.5">
+            <p className="mb-1.5 text-[9px] font-bold uppercase tracking-[0.12em] text-slate-600">
               Connected Wallet
             </p>
             <div className="flex items-center justify-between gap-2">
-              <p className="text-xs font-semibold text-slate-300 truncate">{currentAccountDisplay}</p>
+              <p className="truncate font-mono text-xs font-semibold text-slate-300">{currentAccountDisplay}</p>
               {showCopy && (
                 <button
                   onClick={handleCopy}
-                  className="shrink-0 flex items-center gap-1 text-[10px] font-bold px-2 py-1 rounded transition-all hover:bg-white/10"
-                  style={{ color: copied ? "#22d3ee" : "#64748b" }}
+                  className="flex shrink-0 items-center gap-1 rounded-md px-2 py-1 text-[10px] font-bold transition-all hover:bg-white/[0.06]"
+                  style={{ color: copied ? "#22d3ee" : "#475569" }}
                 >
-                  <span className="material-symbols-outlined text-xs leading-none">
+                  <span className="material-symbols-outlined" style={{ fontSize: 12 }}>
                     {copied ? "check" : "content_copy"}
                   </span>
-                  {copied ? "Copied!" : "Copy"}
+                  {copied ? "Copied" : "Copy"}
                 </button>
               )}
             </div>
           </div>
 
+          {/* Switch accounts */}
           {accounts.length > 1 && (
-            <div className="px-3 py-2 border-b border-white/10">
-              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-2 px-1">
+            <div className="border-b border-white/[0.05] px-3 py-3">
+              <p className="mb-2 px-1 text-[9px] font-bold uppercase tracking-[0.12em] text-slate-600">
                 Switch Account
               </p>
-              <div className="space-y-1 max-h-40 overflow-y-auto">
+              <div className="max-h-40 space-y-0.5 overflow-y-auto">
                 {accounts.map((item) => {
                   const isActive =
                     normalizeAddress(item.address) === normalizeAddress(currentAccount.address);
@@ -158,24 +159,14 @@ export function WalletMenu({ showCopy = true }: WalletMenuProps) {
                       key={item.address}
                       onClick={() => handleSwitchAccount(item.address)}
                       disabled={isActive || isSwitchingAccount}
-                      className="w-full px-2 py-2 rounded-lg text-left text-xs font-bold flex items-center justify-between transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-                      style={
-                        isActive
-                          ? {
-                              background:
-                                "linear-gradient(135deg, rgba(59,130,246,0.22), rgba(34,211,238,0.16))",
-                              color: "#67e8f9",
-                            }
-                          : {
-                              backgroundColor: "rgba(255,255,255,0.03)",
-                              color: "#cbd5e1",
-                            }
-                      }
+                      className="flex w-full items-center justify-between rounded-lg px-2.5 py-2 text-left text-xs font-bold transition-all disabled:cursor-not-allowed disabled:opacity-50"
+                      style={{
+                        color: isActive ? "#67e8f9" : "#94a3b8",
+                        background: isActive ? "rgba(255,255,255,0.06)" : "transparent",
+                      }}
                     >
-                      <span className="truncate pr-2">
-                        {formatAddress(item.address)}
-                      </span>
-                      <span className="material-symbols-outlined text-sm leading-none">
+                      <span className="truncate pr-2 font-mono">{formatAddress(item.address)}</span>
+                      <span className="material-symbols-outlined shrink-0" style={{ fontSize: 14 }}>
                         {isActive ? "check_circle" : "sync_alt"}
                       </span>
                     </button>
@@ -183,38 +174,30 @@ export function WalletMenu({ showCopy = true }: WalletMenuProps) {
                 })}
               </div>
               {switchError && (
-                <p className="text-[10px] text-red-400 font-bold mt-2 px-1">
-                  {switchError}
-                </p>
+                <p className="mt-2 px-1 text-[10px] font-bold text-red-400">{switchError}</p>
               )}
             </div>
           )}
 
-          <button
-            onClick={handleReconnectAndChoose}
-            className="w-full px-4 py-3 flex items-center gap-2 text-sm font-bold hover:bg-white/5 transition-colors text-left border-b border-white/10"
-          >
-            <span
-              className="material-symbols-outlined text-base leading-none"
+          {/* Actions */}
+          <div className="p-1.5">
+            <button
+              onClick={handleReconnectAndChoose}
+              className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2.5 text-[12px] font-bold transition-all hover:bg-white/[0.04]"
               style={{ color: "#f59e0b" }}
             >
-              restart_alt
-            </span>
-            <span style={{ color: "#f59e0b" }}>Reconnect & Choose Account</span>
-          </button>
-
-          <button
-            onClick={handleDisconnect}
-            className="w-full px-4 py-3 flex items-center gap-2 text-sm font-bold hover:bg-white/5 transition-colors text-left"
-          >
-            <span
-              className="material-symbols-outlined text-base leading-none"
-              style={{ color: "#ff4d4d" }}
+              <span className="material-symbols-outlined" style={{ fontSize: 16 }}>restart_alt</span>
+              Reconnect & Choose
+            </button>
+            <button
+              onClick={handleDisconnect}
+              className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2.5 text-[12px] font-bold transition-all hover:bg-white/[0.04]"
+              style={{ color: "#f87171" }}
             >
-              logout
-            </span>
-            <span style={{ color: "#ff4d4d" }}>Disconnect</span>
-          </button>
+              <span className="material-symbols-outlined" style={{ fontSize: 16 }}>logout</span>
+              Disconnect
+            </button>
+          </div>
         </div>
       )}
     </div>

@@ -323,16 +323,16 @@ export default function TournamentsPage() {
   const rangeEnd = Math.min(activePage * ITEMS_PER_PAGE, filteredTournaments.length);
 
   return (
-    <div className="relative z-10 min-h-screen overflow-x-hidden bg-slate-950 text-slate-100 antialiased">
+    <div className="relative z-10 min-h-screen overflow-x-hidden text-slate-100 antialiased">
       <div className="pointer-events-none fixed inset-0">
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(circle at 10% 10%, rgba(20,184,166,0.14), transparent 30%), radial-gradient(circle at 85% 15%, rgba(14,165,233,0.14), transparent 34%), linear-gradient(180deg, #020617 0%, #020617 45%, #0b1120 100%)",
+              "radial-gradient(circle at 10% 10%, rgba(20,184,166,0.08), transparent 30%), radial-gradient(circle at 85% 15%, rgba(14,165,233,0.08), transparent 34%)",
           }}
         />
-        <div className="blue-cyber-grid absolute inset-0 opacity-25" />
+        <div className="blue-cyber-grid absolute inset-0 opacity-15" />
       </div>
 
       <main className="relative z-10 mx-auto max-w-7xl px-5 pb-20 pt-28 md:px-8">
