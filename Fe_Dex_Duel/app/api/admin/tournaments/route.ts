@@ -1,7 +1,6 @@
 import { type NextRequest } from "next/server";
 import { prisma } from "@/lib/db";
 import { serializeRound } from "@/lib/serialize";
-import type { Prisma } from "@prisma/client";
 import { requireAdmin } from "@/src/server/auth/requireAdmin";
 
 export async function GET(req: NextRequest) {
@@ -12,9 +11,7 @@ export async function GET(req: NextRequest) {
     }
 
     const includeHidden = req.nextUrl.searchParams.get("includeHidden") === "1";
-    const where: Prisma.RoundWhereInput = includeHidden
-      ? {}
-      : ({ isHidden: false } as Prisma.RoundWhereInput);
+    const where = includeHidden ? {} : { isHidden: false };
 
     const rows = await prisma.round.findMany({
       where,

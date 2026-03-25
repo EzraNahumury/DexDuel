@@ -1,7 +1,6 @@
 import { type NextRequest } from "next/server";
 import { prisma } from "@/lib/db";
 import { serializeRound } from "@/lib/serialize";
-import type { Prisma } from "@prisma/client";
 import { requireAdmin } from "@/src/server/auth/requireAdmin";
 
 type HidePayload = {
@@ -35,9 +34,9 @@ export async function PATCH(
         ? payload.reason.trim()
         : null;
 
-    const data: Prisma.RoundUpdateInput = payload.hidden
-      ? ({ isHidden: true, hiddenAt: new Date(), hiddenReason: reason } as Prisma.RoundUpdateInput)
-      : ({ isHidden: false, hiddenAt: null, hiddenReason: null } as Prisma.RoundUpdateInput);
+    const data = payload.hidden
+      ? { isHidden: true as const, hiddenAt: new Date(), hiddenReason: reason }
+      : { isHidden: false as const, hiddenAt: null, hiddenReason: null };
 
     const round = await prisma.round.update({
       where: { roundId },

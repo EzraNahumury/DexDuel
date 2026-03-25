@@ -11,7 +11,7 @@
 import { type NextRequest } from "next/server";
 import { prisma } from "@/lib/db";
 import { serializeRound } from "@/lib/serialize";
-import type { RoundStatus, Prisma } from "@prisma/client";
+import type { RoundStatus } from "@prisma/client";
 import { getAdminAddress } from "@/src/server/auth/requireAdmin";
 
 const STATUS_MAP: Record<string, RoundStatus> = {
@@ -35,10 +35,11 @@ export async function GET(req: NextRequest) {
     const includeHidden = sp.get("includeHidden") === "1";
 
     // Build where clause
-    const where: Prisma.RoundWhereInput =
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const where: Record<string, any> =
       includeHidden && getAdminAddress(req)
         ? {}
-        : ({ isHidden: false } as Prisma.RoundWhereInput);
+        : { isHidden: false };
 
     if (status && STATUS_MAP[status]) {
       const mapped = STATUS_MAP[status];
