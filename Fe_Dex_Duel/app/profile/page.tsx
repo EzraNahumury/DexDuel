@@ -25,6 +25,7 @@ import {
   formatUSDT,
 } from "@/lib/constants";
 import { FaucetButton } from "@/components/FaucetButton";
+import { useTranslation } from "@/lib/i18n";
 
 /* ─── Types ──────────────────────────────────────────────────────── */
 type ClaimStates = Record<
@@ -233,6 +234,7 @@ function TournamentGroupCard({
   allJoinEvents: JoinGameEvent[];
   userAddress: string;
 }) {
+  const { t } = useTranslation();
   const wins = playerRounds.filter((r) => r.outcome === "won").length;
   const finished = playerRounds.filter((r) => r.outcome === "won" || r.outcome === "lost").length;
 
@@ -384,7 +386,7 @@ function TournamentGroupCard({
         {/* Right: reward + claim button */}
         <div className="flex items-center gap-4">
           <div className="text-right">
-            <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-slate-600">Reward</p>
+            <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-slate-600">{t("common.reward")}</p>
             <p
               className="text-lg font-black tabular-nums"
               style={{ color: rewardRaw > 0 ? "#0df280" : "#475569" }}
@@ -395,7 +397,7 @@ function TournamentGroupCard({
 
           {isPrizeClaimed ? (
             <span className="rounded-xl border border-[#0df280]/25 bg-[#0df280]/8 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-[#0df280]">
-              Claimed
+              {t("common.claimed")}
             </span>
           ) : (
             <button
@@ -417,7 +419,7 @@ function TournamentGroupCard({
                     }
               }
             >
-              {isPrizePending ? "Claiming..." : "Claim"}
+              {isPrizePending ? t("common.claiming") : t("common.claim")}
             </button>
           )}
         </div>
@@ -432,6 +434,7 @@ function TournamentGroupCard({
 }
 
 export default function ProfilePage() {
+  const { t } = useTranslation();
   const account = useCurrentAccount();
   const mounted = useSyncExternalStore(
     () => () => {},
@@ -846,9 +849,9 @@ export default function ProfilePage() {
                 <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl border border-cyan-400/25 bg-cyan-500/8">
                   <span className="material-symbols-outlined text-[44px] text-cyan-300">account_circle</span>
                 </div>
-                <h1 className="text-3xl font-black tracking-tight">My Profile</h1>
+                <h1 className="text-3xl font-black tracking-tight">{t("profile.title")}</h1>
                 <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-slate-400">
-                  Connect your wallet to view stats, tournament history, and claimable rewards.
+                  {t("profile.connectDesc")}
                 </p>
                 <div className="mt-7 flex justify-center">
                   <ConnectButton />
@@ -902,7 +905,7 @@ export default function ProfilePage() {
                       <div className="min-w-0">
                         <div className="mb-1 flex flex-wrap items-center gap-2.5">
                           <h1 className="text-2xl font-black tracking-tight md:text-3xl">
-                            My <span className="text-cyan-300">Profile</span>
+                            {t("profile.title")}
                           </h1>
                           {myRow && (
                             <span
@@ -932,7 +935,7 @@ export default function ProfilePage() {
 
                     {/* Right — Balance */}
                     <div className="shrink-0 rounded-2xl border border-white/[0.06] bg-white/[0.03] p-5 backdrop-blur-md lg:min-w-[200px]">
-                      <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">USDT Balance</p>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">{t("profile.usdtBalance")}</p>
                       <p className="mt-1 text-3xl font-black tabular-nums text-teal-300">{balance?.formatted ?? "0.00"}</p>
                       <div className="mt-3">
                         <FaucetButton address={account.address} onSuccess={refetchBalance} />
@@ -945,12 +948,12 @@ export default function ProfilePage() {
 
             {/* Stat Cards */}
             <section className="mb-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-              <StatCard label="Tournaments" value={playerGroups.length} icon="sports_esports" color="#38bdf8" delay={0} />
-              <StatCard label="Wins" value={wins} icon="emoji_events" color="#2dd4bf" delay={50} />
-              <StatCard label="Win Rate" value={`${winRate}%`} icon="percent" color={winRate >= 50 ? "#2dd4bf" : "#fb7185"} delay={100} />
-              <StatCard label="Score" value={(myRow?.totalScore ?? 0).toLocaleString()} icon="stars" color="#a78bfa" delay={150} />
-              <StatCard label="Streak" value={myRow?.currentStreak ?? 0} icon="local_fire_department" color="#f59e0b" delay={200} />
-              <StatCard label="Global Rank" value={myRow ? rankLabel(myRow.rank) : "-"} icon="leaderboard" color={myRow ? rankColor(myRow.rank) : "#94a3b8"} delay={250} />
+              <StatCard label={t("profile.tournaments")} value={playerGroups.length} icon="sports_esports" color="#38bdf8" delay={0} />
+              <StatCard label={t("common.wins")} value={wins} icon="emoji_events" color="#2dd4bf" delay={50} />
+              <StatCard label={t("profile.winRate")} value={`${winRate}%`} icon="percent" color={winRate >= 50 ? "#2dd4bf" : "#fb7185"} delay={100} />
+              <StatCard label={t("common.score")} value={(myRow?.totalScore ?? 0).toLocaleString()} icon="stars" color="#a78bfa" delay={150} />
+              <StatCard label={t("common.streak")} value={myRow?.currentStreak ?? 0} icon="local_fire_department" color="#f59e0b" delay={200} />
+              <StatCard label={t("profile.globalRank")} value={myRow ? rankLabel(myRow.rank) : "-"} icon="leaderboard" color={myRow ? rankColor(myRow.rank) : "#94a3b8"} delay={250} />
             </section>
 
             {/* Prediction Split */}
@@ -958,10 +961,10 @@ export default function ProfilePage() {
               <section className="mb-8 overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl">
                 <div className="flex flex-col gap-5 p-5 md:flex-row md:items-center md:p-6">
                   <div className="flex-1">
-                    <h3 className="mb-3 text-[11px] font-bold uppercase tracking-[0.14em] text-slate-500">Prediction Split</h3>
+                    <h3 className="mb-3 text-[11px] font-bold uppercase tracking-[0.14em] text-slate-500">{t("profile.predictionSplit")}</h3>
                     <div className="mb-2 flex justify-between text-xs font-semibold">
-                      <span className="text-teal-300">UP — {upPredictions} ({upPct}%)</span>
-                      <span className="text-rose-400">DOWN — {downPredictions} ({100 - upPct}%)</span>
+                      <span className="text-teal-300">{t("profile.up")} — {upPredictions} ({upPct}%)</span>
+                      <span className="text-rose-400">{t("profile.down")} — {downPredictions} ({100 - upPct}%)</span>
                     </div>
                     <div className="h-2.5 overflow-hidden rounded-full bg-white/[0.04]">
                       <div
@@ -972,11 +975,11 @@ export default function ProfilePage() {
                         }}
                       />
                     </div>
-                    <p className="mt-2 text-[11px] text-slate-600">{wins}/{totalFinished} finished rounds</p>
+                    <p className="mt-2 text-[11px] text-slate-600">{wins}/{totalFinished} {t("profile.finishedRounds")}</p>
                   </div>
 
                   <div className="flex flex-col items-center rounded-xl border border-white/[0.06] bg-white/[0.03] px-6 py-4">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">Win Rate</p>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">{t("profile.winRate")}</p>
                     <p className="mt-1 text-4xl font-black tabular-nums" style={{ color: winRate >= 50 ? "#2dd4bf" : "#fb7185" }}>
                       {winRate}<span className="text-lg">%</span>
                     </p>
@@ -992,7 +995,7 @@ export default function ProfilePage() {
                   <span className="h-2 w-2 shrink-0 rounded-full animate-live-dot bg-[#0df280]" />
                   <p className="flex-1 text-sm text-slate-200">
                     <span className="font-bold text-[#0df280]">{totalClaimable} payout{totalClaimable !== 1 ? "s" : ""}</span>{" "}
-                    ready to claim
+                    {t("profile.payoutsReady")}
                     {claimablePrizeCount > 0 && (
                       <span className="text-slate-400">
                         {" "}· Prize pool: <span className="font-bold text-[#0df280]">{formatUSDT(totalClaimablePrizeRaw)} USDT</span>
@@ -1011,7 +1014,7 @@ export default function ProfilePage() {
                   <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-cyan-400/20 bg-cyan-500/8">
                     <span className="material-symbols-outlined text-sm text-cyan-300">history</span>
                   </div>
-                  <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-slate-400">Tournament History</h3>
+                  <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-slate-400">{t("profile.tournamentHistory")}</h3>
                   {playerGroups.length > 0 && (
                     <span className="rounded-md bg-white/[0.05] px-2 py-0.5 text-[10px] font-bold tabular-nums text-slate-400">
                       {playerGroups.length}
@@ -1022,13 +1025,13 @@ export default function ProfilePage() {
                   href="/tournaments"
                   className="inline-flex items-center gap-1 rounded-lg border border-cyan-400/20 bg-cyan-500/8 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-cyan-300 transition hover:bg-cyan-500/15"
                 >
-                  Join New
+                  {t("profile.joinNew")}
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>
                 </Link>
               </header>
 
               <div className="border-b border-white/[0.04] px-5 py-2 text-[10px] font-semibold text-slate-600">
-                Prize: 1st = 50% · 2nd = 30% · 3rd = 20%
+                {t("profile.prizeSplit")}
               </div>
 
               {(joinedEventsQuery.isLoading || tournamentsQuery.isLoading) && (
@@ -1044,14 +1047,14 @@ export default function ProfilePage() {
                   <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/[0.06] bg-white/[0.03]">
                     <span className="material-symbols-outlined text-3xl text-slate-600">casino</span>
                   </div>
-                  <p className="font-bold text-slate-300">No tournaments yet</p>
-                  <p className="mt-1 text-sm text-slate-500">Join a tournament to start earning rewards.</p>
+                  <p className="font-bold text-slate-300">{t("profile.noTournaments")}</p>
+                  <p className="mt-1 text-sm text-slate-500">{t("profile.noTournamentsDesc")}</p>
                   <Link
                     href="/tournaments"
                     className="mt-6 inline-flex items-center gap-2 rounded-xl border border-cyan-400/25 bg-cyan-500/8 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-cyan-300 transition hover:bg-cyan-500/15"
                   >
                     <span className="material-symbols-outlined text-sm">sports_esports</span>
-                    Browse Tournaments
+                    {t("profile.browseTournaments")}
                   </Link>
                 </div>
               )}
@@ -1085,9 +1088,9 @@ export default function ProfilePage() {
                   <span className="material-symbols-outlined text-xl text-amber-300">emoji_events</span>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-bold text-slate-100">Global Leaderboard</p>
+                  <p className="text-sm font-bold text-slate-100">{t("profile.globalLeaderboard")}</p>
                   <p className="text-xs text-slate-500">
-                    {myRow ? `You are ranked ${rankLabel(myRow.rank)} globally` : "See how you rank globally"}
+                    {t("profile.globalLeaderboardDesc")}
                   </p>
                 </div>
                 <span className="material-symbols-outlined text-slate-600 transition group-hover:translate-x-0.5 group-hover:text-slate-400">arrow_forward</span>
@@ -1101,8 +1104,8 @@ export default function ProfilePage() {
                   <span className="material-symbols-outlined text-xl text-teal-300">sports_esports</span>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-bold text-slate-100">Browse Tournaments</p>
-                  <p className="text-xs text-slate-500">Join live rounds and earn USDT prizes</p>
+                  <p className="text-sm font-bold text-slate-100">{t("profile.browseTournaments")}</p>
+                  <p className="text-xs text-slate-500">{t("profile.browseTournamentsDesc")}</p>
                 </div>
                 <span className="material-symbols-outlined text-slate-600 transition group-hover:translate-x-0.5 group-hover:text-slate-400">arrow_forward</span>
               </Link>

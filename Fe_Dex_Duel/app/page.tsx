@@ -13,6 +13,7 @@ import {
   useScrollStagger,
   useHeroTimeline,
 } from "@/hooks/useGsap";
+import { useTranslation } from "@/lib/i18n";
 
 /* ─────────────────────────────────────────────────────────────────
    Parallax banner (GSAP scroll-driven, stylend-style)
@@ -403,6 +404,7 @@ function ArenaPortal() {
    Page
 ───────────────────────────────────────────────────────────────── */
 export default function LandingPage() {
+  const { t } = useTranslation();
   const account = useCurrentAccount();
   const router  = useRouter();
 
@@ -484,14 +486,14 @@ export default function LandingPage() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-400" />
               </span>
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em]">World&apos;s First Lossless Arena</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em]">{t("home.badge")}</span>
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-6 leading-[1.05]">
-              <span ref={line0Ref} style={{ display: "block" }}>Unleashing</span>
-              <span ref={line1Ref} style={{ display: "block" }}>the Power</span>
+              <span ref={line0Ref} style={{ display: "block" }}>{t("home.heroLine1")}</span>
+              <span ref={line1Ref} style={{ display: "block" }}>{t("home.heroLine2")}</span>
               <span ref={line2Ref} style={{ display: "block" }}>
-                of{" "}
+                {t("home.heroLine3")}{" "}
                 <span ref={line3Ref} className="text-transparent bg-clip-text"
                   style={{ backgroundImage: "linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%)", display: "inline-block" }}>
                   DexDuel
@@ -500,8 +502,7 @@ export default function LandingPage() {
             </h1>
 
             <p ref={paraRef} className="text-lg text-slate-400 max-w-lg mb-10 leading-relaxed">
-              Transforming trading with secure, lossless, and transparent prediction markets.
-              Stake, predict, and win the yield — powered by OneChain.
+              {t("home.heroDesc")}
             </p>
 
             <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-4">
@@ -517,7 +518,7 @@ export default function LandingPage() {
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.animationPlayState = "paused"; (e.currentTarget as HTMLElement).style.filter = "brightness(1.15)"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.animationPlayState = "running"; (e.currentTarget as HTMLElement).style.filter = "brightness(1)"; }}
               >
-                Enter Arena
+                {t("home.enterArena")}
               </Link>
               {/* Secondary CTA — float with offset delay */}
               <Link href="/tournaments"
@@ -531,7 +532,7 @@ export default function LandingPage() {
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.animationPlayState = "paused"; (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.08)"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.animationPlayState = "running"; (e.currentTarget as HTMLElement).style.background = "transparent"; }}
               >
-                Discover How It Works
+                {t("home.discoverHow")}
               </Link>
             </div>
           </div>
@@ -560,20 +561,20 @@ export default function LandingPage() {
               Why{" "}
               <span className="text-transparent bg-clip-text"
                 style={{ backgroundImage: "linear-gradient(135deg, #3b82f6, #06b6d4)" }}>
-                DexDuel?
+                {t("home.whyTitle")}
               </span>
             </h2>
             <p className="text-slate-400 max-w-md mx-auto leading-relaxed">
-              DexDuel is redefining yield in the digital world. Here&apos;s why it matters.
+              {t("home.whySubtitle")}
             </p>
           </div>
 
           <div ref={whyCardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { icon: "security",  title: "Zero Risk",       desc: "Your principal is always protected. Losers get 100% of their stake back instantly.", accent: "#3b82f6" },
-              { icon: "bolt",      title: "Instant Payouts", desc: "Yield distributed the moment each round closes. No waiting, no delays.",              accent: "#06b6d4" },
-              { icon: "bar_chart", title: "Transparency",    desc: "Every round, stake, and outcome is fully verifiable on-chain. No black boxes.",        accent: "#a78bfa" },
-              { icon: "speed",     title: "Efficiency",      desc: "5-minute rounds on OneChain. The fastest prediction market alive.",                   accent: "#0df280" },
+              { icon: "security",  title: t("home.zeroRisk"),       desc: t("home.zeroRiskDesc"), accent: "#3b82f6" },
+              { icon: "bolt",      title: t("home.instantPayouts"), desc: t("home.instantPayoutsDesc"),              accent: "#06b6d4" },
+              { icon: "bar_chart", title: t("home.transparency"),    desc: t("home.transparencyDesc"),        accent: "#a78bfa" },
+              { icon: "speed",     title: t("home.efficiency"),      desc: t("home.efficiencyDesc"),                   accent: "#0df280" },
             ].map(({ icon, title, desc, accent }, i) => (
               <div key={title}
                 className="why-card relative rounded-2xl overflow-hidden"
@@ -643,12 +644,11 @@ export default function LandingPage() {
               Why DexDuel{" "}
               <span className="text-transparent bg-clip-text"
                 style={{ backgroundImage: "linear-gradient(135deg, #3b82f6, #06b6d4)" }}>
-                Matters
+                {t("home.whyMattersTitle")}
               </span>
             </h2>
             <p className="text-slate-400 mb-10 leading-relaxed max-w-md">
-              DexDuel is revolutionizing how we handle trading and yield. By eliminating principal loss
-              and creating secure, transparent systems, we&apos;re laying the foundation for a fairer financial future.
+              {t("home.whyMattersDesc")}
             </p>
             <Link href="/tournaments"
               className="inline-block px-8 py-4 rounded-lg font-black text-sm uppercase tracking-wider active:scale-95"
@@ -661,7 +661,7 @@ export default function LandingPage() {
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.animationPlayState = "paused"; (e.currentTarget as HTMLElement).style.filter = "brightness(1.15)"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.animationPlayState = "running"; (e.currentTarget as HTMLElement).style.filter = "brightness(1)"; }}
             >
-              Enter Arena
+              {t("home.enterArena")}
             </Link>
           </div>
           <div ref={mattersRightRef} className="hidden lg:flex items-center justify-center">
@@ -685,15 +685,15 @@ export default function LandingPage() {
               Live{" "}
               <span className="text-transparent bg-clip-text inline-block pr-1"
                 style={{ backgroundImage: "linear-gradient(135deg, #3b82f6, #06b6d4)" }}>
-                Battles
+                {t("home.liveBattles")}
               </span>
             </h2>
-            <p className="text-slate-500 font-medium mt-1">Predict the next 5-minute price movement</p>
+            <p className="text-slate-500 font-medium mt-1">{t("home.liveBattlesDesc")}</p>
           </div>
           <Link href="/tournaments"
             className="text-sm font-bold uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all"
             style={{ color: "#3b82f6" }}>
-            All Markets
+            {t("home.allMarkets")}
             <span className="material-symbols-outlined leading-none">arrow_forward</span>
           </Link>
         </div>
@@ -759,7 +759,7 @@ export default function LandingPage() {
                     style={{ animation: "priceFlicker 8s ease-in-out infinite" }}>
                     {price}
                   </p>
-                  <p className="text-[10px] font-bold uppercase tracking-wider" style={{ color: accent }}>Locked Price</p>
+                  <p className="text-[10px] font-bold uppercase tracking-wider" style={{ color: accent }}>{t("home.lockedPrice")}</p>
                 </div>
               </div>
 
@@ -768,12 +768,12 @@ export default function LandingPage() {
                 <button className="flex-1 py-4 rounded-xl flex flex-col items-center gap-1 transition-all hover:scale-[1.04] hover:brightness-110"
                   style={{ backgroundColor: "rgba(13,242,128,0.07)", border: "1px solid rgba(13,242,128,0.28)" }}>
                   <span className="material-symbols-outlined" style={{ color: "#0df280", fontSize: 22 }}>trending_up</span>
-                  <span className="font-black uppercase text-xs tracking-wider" style={{ color: "#0df280" }}>Predict UP</span>
+                  <span className="font-black uppercase text-xs tracking-wider" style={{ color: "#0df280" }}>{t("home.predictUp")}</span>
                 </button>
                 <button className="flex-1 py-4 rounded-xl flex flex-col items-center gap-1 transition-all hover:scale-[1.04] hover:brightness-110"
                   style={{ backgroundColor: "rgba(255,77,77,0.07)", border: "1px solid rgba(255,77,77,0.28)" }}>
                   <span className="material-symbols-outlined" style={{ color: "#ff4d4d", fontSize: 22 }}>trending_down</span>
-                  <span className="font-black uppercase text-xs tracking-wider" style={{ color: "#ff4d4d" }}>Predict DOWN</span>
+                  <span className="font-black uppercase text-xs tracking-wider" style={{ color: "#ff4d4d" }}>{t("home.predictDown")}</span>
                 </button>
               </div>
 
@@ -781,8 +781,8 @@ export default function LandingPage() {
               <div className="rounded-xl p-3"
                 style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.05)" }}>
                 <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-1.5">
-                  <span>Prize Pool Yield</span>
-                  <span>Ends In</span>
+                  <span>{t("home.prizePoolYield")}</span>
+                  <span>{t("home.endsIn")}</span>
                 </div>
                 <div className="flex justify-between items-end">
                   <span className="text-lg font-black" style={{ color: poolColor }}>{pool}</span>
@@ -820,7 +820,7 @@ export default function LandingPage() {
               <div className="px-6 py-5 flex items-center gap-3 shrink-0"
                 style={{ borderBottom: "1px solid rgba(59,130,246,0.12)", background: "rgba(59,130,246,0.06)" }}>
                 <span className="material-symbols-outlined" style={{ color: "#3b82f6", fontSize: 22 }}>workspace_premium</span>
-                <h2 className="text-xl font-black uppercase italic tracking-tighter">Arena Legends</h2>
+                <h2 className="text-xl font-black uppercase italic tracking-tighter">{t("home.arenaLegends")}</h2>
                 <span className="ml-auto text-[8px] font-black uppercase tracking-widest px-2 py-1 rounded-full"
                   style={{ color: "#0df280", background: "rgba(13,242,128,0.08)", border: "1px solid rgba(13,242,128,0.2)" }}>
                   Season 1
@@ -831,7 +831,7 @@ export default function LandingPage() {
               <table className="w-full text-left">
                 <thead style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
                   <tr>
-                    {["Player", "Win Rate", "Yield Won"].map((h, i) => (
+                    {[t("common.player"), t("home.winRate"), t("home.yieldWon")].map((h, i) => (
                       <th key={h} className={`px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-slate-500${i === 2 ? " text-right" : ""}`}>{h}</th>
                     ))}
                   </tr>
@@ -859,7 +859,7 @@ export default function LandingPage() {
                           </div>
                           <div>
                             <div className="font-bold text-sm tracking-tight">{addr}</div>
-                            <div className="text-[9px] text-slate-600 font-bold uppercase tracking-wider mt-0.5">Trader</div>
+                            <div className="text-[9px] text-slate-600 font-bold uppercase tracking-wider mt-0.5">{t("home.trader")}</div>
                           </div>
                         </div>
                       </td>
@@ -889,7 +889,7 @@ export default function LandingPage() {
                 <Link href="/leaderboard"
                   className="text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all"
                   style={{ color: "#3b82f6" }}>
-                  View Full Leaderboard
+                  {t("home.viewFullLeaderboard")}
                   <span className="material-symbols-outlined leading-none" style={{ fontSize: 16 }}>arrow_forward</span>
                 </Link>
               </div>
@@ -920,18 +920,17 @@ export default function LandingPage() {
               </div>
 
               <div className="relative z-10 flex flex-col flex-1">
-                <h3 className="text-2xl font-black uppercase italic mb-3 tracking-tight">Join the Collective</h3>
+                <h3 className="text-2xl font-black uppercase italic mb-3 tracking-tight">{t("home.joinCollective")}</h3>
                 <p className="text-slate-400 mb-8 leading-relaxed text-sm">
-                  Join 50,000+ players in the Arena Discord. Get real-time alerts, market insights,
-                  and participate in governance voting for the next OneChain features.
+                  {t("home.joinCollectiveDesc")}
                 </p>
 
                 {/* Stats row */}
                 <div className="grid grid-cols-3 gap-3 mb-8">
                   {[
-                    { val: "50K+", label: "Players",  delay: "0.1s" },
-                    { val: "98%",  label: "Uptime",   delay: "0.22s" },
-                    { val: "24/7", label: "Alerts",   delay: "0.34s" },
+                    { val: "50K+", label: t("home.players"),  delay: "0.1s" },
+                    { val: "98%",  label: t("home.uptime"),   delay: "0.22s" },
+                    { val: "24/7", label: t("home.alerts"),   delay: "0.34s" },
                   ].map(({ val, label, delay }) => (
                     <div key={label} className="text-center p-3 rounded-xl"
                       style={{
@@ -949,7 +948,7 @@ export default function LandingPage() {
                 {/* Activity feed */}
                 <div className="rounded-xl p-4 mb-8"
                   style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
-                  <div className="text-[9px] text-slate-500 uppercase tracking-widest font-bold mb-3">Recent Activity</div>
+                  <div className="text-[9px] text-slate-500 uppercase tracking-widest font-bold mb-3">{t("home.recentActivity")}</div>
                   {[
                     { icon: "emoji_events", text: "0x7a...E921 won 2.1 ETH yield", color: "#f59e0b", ago: "2m ago" },
                     { icon: "trending_up",  text: "BTC round closed — UP wins",    color: "#0df280", ago: "5m ago" },
@@ -980,12 +979,12 @@ export default function LandingPage() {
                     onMouseEnter={e => { (e.currentTarget as HTMLElement).style.animationPlayState = "paused"; }}
                     onMouseLeave={e => { (e.currentTarget as HTMLElement).style.animationPlayState = "running"; }}
                   >
-                    Join Discord
+                    {t("home.joinDiscord")}
                   </button>
                   <button
                     className="flex-1 py-3 rounded-lg font-black text-xs uppercase tracking-widest text-white transition-all hover:bg-white/10"
                     style={{ backgroundColor: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                    Follow @DexDuel
+                    {t("home.followUs")}
                   </button>
                 </div>
               </div>

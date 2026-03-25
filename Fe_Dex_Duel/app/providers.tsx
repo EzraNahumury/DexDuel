@@ -8,6 +8,7 @@ import {
   lightTheme,
 } from "@onelabs/dapp-kit";
 import { AccountSelectionGate } from "@/components/AccountSelectionGate";
+import { I18nProvider } from "@/lib/i18n";
 
 const { networkConfig } = createNetworkConfig({
   testnet: { url: "https://rpc-testnet.onelabs.cc:443" },
@@ -58,8 +59,10 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     <QueryClientProvider client={queryClient}>
       <SuiClientProvider networks={networkConfig} defaultNetwork="testnet">
         <WalletProvider autoConnect={false} storage={null} theme={walletTheme}>
-          <AccountSelectionGate />
-          {children}
+          <I18nProvider>
+            <AccountSelectionGate />
+            {children}
+          </I18nProvider>
         </WalletProvider>
       </SuiClientProvider>
     </QueryClientProvider>

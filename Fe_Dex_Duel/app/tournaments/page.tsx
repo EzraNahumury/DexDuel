@@ -4,6 +4,7 @@ import { useMemo, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { useMultiRoundTournaments, type TournamentGroup } from "@/hooks/useMultiRoundTournaments";
 import { formatUSDT } from "@/lib/constants";
+import { useTranslation } from "@/lib/i18n";
 
 const ITEMS_PER_PAGE = 6;
 
@@ -93,6 +94,7 @@ function TournamentGroupCard({
   tournament: TournamentGroup;
   index: number;
 }) {
+  const { t } = useTranslation();
   const statusStyle = STATUS_STYLE[tournament.status];
   const isLive = tournament.status === "live";
   const currentRound = tournament.currentRound;
@@ -100,12 +102,12 @@ function TournamentGroupCard({
 
   const timeInfo = useMemo(() => {
     if (tournament.status === "live" && currentRound) {
-      return { label: "Ends In", value: formatTimeLeft(currentRound.endTimeMs) };
+      return { label: t("tournaments.endsIn"), value: formatTimeLeft(currentRound.endTimeMs) };
     }
     if (tournament.status === "upcoming" && currentRound) {
-      return { label: "Starts In", value: formatTimeLeft(currentRound.startTimeMs) };
+      return { label: t("tournaments.startsIn"), value: formatTimeLeft(currentRound.startTimeMs) };
     }
-    return { label: "Status", value: "Completed" };
+    return { label: t("common.status"), value: t("common.completed") };
   }, [tournament.status, currentRound]);
 
   return (
@@ -171,9 +173,9 @@ function TournamentGroupCard({
       <div className="mt-4 border-t border-slate-800/70 px-5 pt-4">
         <div className="grid grid-cols-2 gap-y-3">
           {[
-            { label: "Entry Fee", value: `${formatUSDT(tournament.entryFeeRaw)} USDT` },
-            { label: "Prize Pool", value: `${formatUSDT(tournament.totalPrizePoolRaw)} USDT` },
-            { label: "Progress", value: completedLabel },
+            { label: t("tournaments.entryFee"), value: `${formatUSDT(tournament.entryFeeRaw)} USDT` },
+            { label: t("tournaments.prizePool"), value: `${formatUSDT(tournament.totalPrizePoolRaw)} USDT` },
+            { label: t("tournaments.progress"), value: completedLabel },
             timeInfo,
           ].map((item) => (
             <div key={item.label}>
@@ -185,7 +187,7 @@ function TournamentGroupCard({
       </div>
 
       <div className="px-5 pb-4 pt-4">
-        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">Round Progress</p>
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">{t("tournaments.roundProgress")}</p>
         <RoundDots rounds={tournament.rounds} />
         {currentRound && tournament.status !== "completed" && (
           <p className="mt-2 text-[11px] font-semibold text-slate-400">
@@ -219,7 +221,7 @@ function TournamentGroupCard({
                 }
           }
         >
-          {isLive ? "Predict Now" : tournament.status === "upcoming" ? "View Details" : "View Results"}
+          {isLive ? t("tournaments.predictNow") : tournament.status === "upcoming" ? t("tournaments.viewDetails") : t("tournaments.viewResults")}
         </Link>
       </div>
     </article>
@@ -273,6 +275,7 @@ function StatCard({
 }
 
 export default function TournamentsPage() {
+  const { t } = useTranslation();
   const tournamentsQuery = useMultiRoundTournaments();
   const mounted = useSyncExternalStore(
     () => () => {},
@@ -339,7 +342,7 @@ export default function TournamentsPage() {
         <section className="mb-8">
           <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
             <span className="rounded-lg border border-teal-500/30 bg-teal-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-teal-300">
-              On-Chain Tournaments
+              {t("tournaments.onChain")}
             </span>
             <div className="flex items-center gap-2">
               <span className="rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-1.5 text-xs font-medium text-slate-400">
@@ -350,24 +353,23 @@ export default function TournamentsPage() {
                 onClick={() => tournamentsQuery.refetch()}
                 className="rounded-lg border border-cyan-500/35 bg-cyan-500/10 px-3 py-1.5 text-xs font-semibold text-cyan-300 transition hover:border-cyan-400/55 hover:bg-cyan-500/15"
               >
-                Refresh
+                {t("common.refresh")}
               </button>
             </div>
           </div>
 
-          <h1 className="text-4xl font-black tracking-tight md:text-5xl">Tournament Dashboard</h1>
+          <h1 className="text-4xl font-black tracking-tight md:text-5xl">{t("tournaments.title")}</h1>
           <p className="mt-2 max-w-2xl text-sm text-slate-400">
-            Track multi-round prediction seasons, monitor live sessions, and review results with a cleaner and
-            faster browsing flow.
+            {t("tournaments.subtitle")}
           </p>
         </section>
 
         <section className="mb-7 grid grid-cols-2 gap-3 md:grid-cols-5">
-          <StatCard label="Tournaments" value={stats.total} tint="#67e8f9" delay={0} />
-          <StatCard label="Live" value={stats.live} tint="#14b8a6" delay={60} />
-          <StatCard label="Upcoming" value={stats.upcoming} tint="#f59e0b" delay={120} />
-          <StatCard label="Completed" value={stats.completed} tint="#cbd5e1" delay={180} />
-          <StatCard label="Total Rounds" value={stats.totalRounds} tint="#38bdf8" delay={240} />
+          <StatCard label={t("profile.tournaments")} value={stats.total} tint="#67e8f9" delay={0} />
+          <StatCard label={t("common.live")} value={stats.live} tint="#14b8a6" delay={60} />
+          <StatCard label={t("common.upcoming")} value={stats.upcoming} tint="#f59e0b" delay={120} />
+          <StatCard label={t("common.completed")} value={stats.completed} tint="#cbd5e1" delay={180} />
+          <StatCard label={t("tournaments.totalRounds")} value={stats.totalRounds} tint="#38bdf8" delay={240} />
         </section>
 
         <section className="mb-7 rounded-2xl border border-slate-800/80 bg-slate-900/65 p-4 backdrop-blur-xl">
@@ -424,7 +426,7 @@ export default function TournamentsPage() {
                   setSearch(event.target.value);
                   setCurrentPage(1);
                 }}
-                placeholder="Search coin or season..."
+                placeholder={t("tournaments.searchPlaceholder")}
                 className="form-field-glow w-full rounded-xl border border-slate-700/80 bg-slate-950/70 py-2.5 pl-9 pr-3 text-sm text-slate-100 outline-none md:w-72"
               />
             </div>
@@ -451,7 +453,7 @@ export default function TournamentsPage() {
             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl border border-teal-500/30 bg-teal-500/10">
               <span className="material-symbols-outlined text-3xl text-teal-300">emoji_events</span>
             </div>
-            <h3 className="text-xl font-bold text-slate-100">No tournaments found</h3>
+            <h3 className="text-xl font-bold text-slate-100">{t("tournaments.noTournaments")}</h3>
             <p className="mt-2 text-sm text-slate-400">
               {search || statusFilter !== "all"
                 ? "Try adjusting your search keyword or filters."
@@ -461,7 +463,7 @@ export default function TournamentsPage() {
               href="/arena"
               className="mt-6 inline-flex rounded-xl border border-teal-400/40 bg-teal-500/15 px-6 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-teal-200 transition hover:bg-teal-500/25"
             >
-              Create Tournament
+              {t("tournaments.createTournament")}
             </Link>
           </section>
         )}
@@ -470,11 +472,11 @@ export default function TournamentsPage() {
           <>
             <section className="mb-4 flex flex-col gap-2 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
               <p>
-                Showing <span className="font-semibold text-slate-200">{rangeStart}</span>-
-                <span className="font-semibold text-slate-200">{rangeEnd}</span> of{" "}
-                <span className="font-semibold text-slate-200">{filteredTournaments.length}</span> tournaments
+                {t("tournaments.showing")} <span className="font-semibold text-slate-200">{rangeStart}</span>-
+                <span className="font-semibold text-slate-200">{rangeEnd}</span> {t("tournaments.of")}{" "}
+                <span className="font-semibold text-slate-200">{filteredTournaments.length}</span> {t("tournaments.tournamentWord")}
               </p>
-              <p className="text-xs text-slate-500">6 items per page</p>
+              <p className="text-xs text-slate-500">{t("tournaments.itemsPerPage")}</p>
             </section>
 
             <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -491,7 +493,7 @@ export default function TournamentsPage() {
                   disabled={activePage === 1}
                   className="rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-2 text-xs font-semibold text-slate-300 transition enabled:hover:border-slate-500 enabled:hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-40"
                 >
-                  Prev
+                  {t("common.prev")}
                 </button>
 
                 {paginationItems.map((item, index) => {
@@ -535,7 +537,7 @@ export default function TournamentsPage() {
                   disabled={activePage === totalPages}
                   className="rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-2 text-xs font-semibold text-slate-300 transition enabled:hover:border-slate-500 enabled:hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-40"
                 >
-                  Next
+                  {t("common.next")}
                 </button>
               </section>
             )}

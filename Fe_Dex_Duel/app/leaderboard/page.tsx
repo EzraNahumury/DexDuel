@@ -4,6 +4,7 @@ import { useMemo, useState, useSyncExternalStore } from "react";
 import { useCurrentAccount } from "@onelabs/dapp-kit";
 import { useLeaderboardRows } from "@/hooks/useLeaderboard";
 import { shortenAddress } from "@/lib/constants";
+import { useTranslation } from "@/lib/i18n";
 
 function formatLastUpdate(timestampMs: number): string {
   if (!timestampMs) return "-";
@@ -84,6 +85,7 @@ function PodiumCard({
   isMe: boolean;
   isFeatured?: boolean;
 }) {
+  const { t } = useTranslation();
   const tone = rankTone(rank);
 
   return (
@@ -111,7 +113,7 @@ function PodiumCard({
           </span>
           {isMe && (
             <span className="rounded-full border border-teal-400/40 bg-teal-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-teal-200">
-              You
+              {t("common.you")}
             </span>
           )}
         </div>
@@ -120,13 +122,13 @@ function PodiumCard({
         <p className="mt-2 text-3xl font-black" style={{ color: tone.text }}>
           {totalScore.toLocaleString()}
         </p>
-        <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-500">points</p>
+        <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-500">{t("common.points")}</p>
 
         <div className="mt-4 grid grid-cols-3 gap-2">
           {[
-            { label: "Wins", value: winEvents },
-            { label: "Streak", value: currentStreak },
-            { label: "Updates", value: updateEvents },
+            { label: t("common.wins"), value: winEvents },
+            { label: t("common.streak"), value: currentStreak },
+            { label: t("common.updates"), value: updateEvents },
           ].map((item) => (
             <div key={item.label} className="rounded-lg border border-slate-800/80 bg-slate-950/70 p-2 text-center">
               <p className="text-sm font-bold text-slate-100">{item.value}</p>
@@ -158,6 +160,7 @@ function ScoreBar({ score, maxScore }: { score: number; maxScore: number }) {
 }
 
 export default function LeaderboardPage() {
+  const { t } = useTranslation();
   const account = useCurrentAccount();
   const [search, setSearch] = useState("");
   const mounted = useSyncExternalStore(
@@ -199,40 +202,40 @@ export default function LeaderboardPage() {
           <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
             <span className="inline-flex items-center gap-2 rounded-lg border border-amber-400/35 bg-amber-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-300">
               <span className="material-symbols-outlined text-sm">emoji_events</span>
-              Live Rankings
+              {t("leaderboard.liveRankings")}
             </span>
             <div className="flex items-center gap-2">
               <span className="rounded-lg border border-slate-700/80 bg-slate-900/70 px-3 py-1.5 text-xs font-medium text-slate-400">
-                Last event: {mounted ? formatLastUpdate(lastUpdated) : "--"}
+                {t("leaderboard.lastEvent")} {mounted ? formatLastUpdate(lastUpdated) : "--"}
               </span>
               <button
                 type="button"
                 onClick={() => leaderboardQuery.refetch()}
                 className="rounded-lg border border-cyan-400/35 bg-cyan-500/12 px-3 py-1.5 text-xs font-semibold text-cyan-200 transition hover:border-cyan-300/55 hover:bg-cyan-500/20"
               >
-                Refresh
+                {t("common.refresh")}
               </button>
             </div>
           </div>
 
           <h1 className="text-4xl font-black tracking-tight md:text-5xl">
-            On-Chain <span className="text-cyan-300">Leaderboard</span>
+            {t("leaderboard.title")}
           </h1>
           <p className="mt-2 max-w-2xl text-sm text-slate-400">
-            Aggregated from on-chain <code className="text-slate-300">ScoreUpdated</code> events.
+            {t("leaderboard.subtitle")}
           </p>
         </section>
 
         <section className="mb-8 grid grid-cols-1 gap-3 md:grid-cols-3">
-          <SummaryCard icon="groups" label="Total Players" value={rows.length} tint="#2dd4bf" delay={0} />
-          <SummaryCard icon="bar_chart" label="Total Score" value={totalScore.toLocaleString()} tint="#38bdf8" delay={70} />
-          <SummaryCard icon="workspace_premium" label="Top Score" value={(rows[0]?.totalScore ?? 0).toLocaleString()} tint="#facc15" delay={140} />
+          <SummaryCard icon="groups" label={t("leaderboard.totalPlayers")} value={rows.length} tint="#2dd4bf" delay={0} />
+          <SummaryCard icon="bar_chart" label={t("leaderboard.totalScore")} value={totalScore.toLocaleString()} tint="#38bdf8" delay={70} />
+          <SummaryCard icon="workspace_premium" label={t("leaderboard.topScore")} value={(rows[0]?.totalScore ?? 0).toLocaleString()} tint="#facc15" delay={140} />
         </section>
 
         {podium.length > 0 && (
           <section className="mb-10">
             <div className="mb-4 flex items-center gap-3">
-              <h2 className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-400">Hall Of Fame</h2>
+              <h2 className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-400">{t("leaderboard.hallOfFame")}</h2>
               <div className="h-px flex-1 bg-gradient-to-r from-cyan-300/30 to-transparent" />
             </div>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
@@ -259,7 +262,7 @@ export default function LeaderboardPage() {
 
         <section className="mb-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <h2 className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-400">
-            All Players ({filteredRows.length})
+            {t("leaderboard.allPlayers")} ({filteredRows.length})
           </h2>
           <div className="relative">
             <span className="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-base text-slate-500">
@@ -269,7 +272,7 @@ export default function LeaderboardPage() {
               type="text"
               value={search}
               onChange={(event) => setSearch(event.target.value)}
-              placeholder="Search wallet address..."
+              placeholder={t("leaderboard.searchPlaceholder")}
               className="form-field-glow w-full rounded-xl border border-slate-700/80 bg-slate-900/70 py-2.5 pl-9 pr-3 text-sm text-slate-100 outline-none md:w-80"
             />
           </div>
@@ -302,7 +305,7 @@ export default function LeaderboardPage() {
         {!leaderboardQuery.isLoading && !leaderboardQuery.isError && filteredRows.length === 0 && (
           <section className="rounded-2xl border border-dashed border-slate-700/80 bg-slate-900/55 p-12 text-center">
             <span className="material-symbols-outlined text-4xl text-slate-500">leaderboard</span>
-            <p className="mt-2 text-sm text-slate-400">No leaderboard data found.</p>
+            <p className="mt-2 text-sm text-slate-400">{t("leaderboard.noData")}</p>
           </section>
         )}
 
@@ -312,12 +315,12 @@ export default function LeaderboardPage() {
               <table className="min-w-[980px] w-full border-collapse text-left">
                 <thead className="bg-slate-950/45">
                   <tr className="border-b border-slate-800/80">
-                    <th className="px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">Rank</th>
-                    <th className="px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">Player</th>
-                    <th className="px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">Score</th>
-                    <th className="px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">Wins</th>
-                    <th className="px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">Streak</th>
-                    <th className="px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">Updated</th>
+                    <th className="px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">{t("common.rank")}</th>
+                    <th className="px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">{t("common.player")}</th>
+                    <th className="px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">{t("common.score")}</th>
+                    <th className="px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">{t("common.wins")}</th>
+                    <th className="px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">{t("common.streak")}</th>
+                    <th className="px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">{t("common.updated")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -349,7 +352,7 @@ export default function LeaderboardPage() {
                             <span className="truncate text-sm font-semibold text-slate-200">{shortenAddress(row.player, 6)}</span>
                             {isMe && (
                               <span className="rounded-full border border-teal-400/40 bg-teal-500/15 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-teal-200">
-                                You
+                                {t("common.you")}
                               </span>
                             )}
                           </div>
@@ -396,7 +399,7 @@ export default function LeaderboardPage() {
                       </div>
                       {isMe && (
                         <span className="rounded-full border border-teal-400/40 bg-teal-500/15 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-teal-200">
-                          You
+                          {t("common.you")}
                         </span>
                       )}
                     </div>
@@ -405,15 +408,15 @@ export default function LeaderboardPage() {
                       <div className="grid grid-cols-3 gap-2 text-center">
                         <div className="rounded-lg border border-slate-800/80 bg-slate-900/70 p-1.5">
                           <p className="text-xs font-semibold text-slate-200">{row.winEvents}</p>
-                          <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-500">Wins</p>
+                          <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-500">{t("common.wins")}</p>
                         </div>
                         <div className="rounded-lg border border-slate-800/80 bg-slate-900/70 p-1.5">
                           <p className="text-xs font-semibold text-slate-200">{row.currentStreak}</p>
-                          <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-500">Streak</p>
+                          <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-500">{t("common.streak")}</p>
                         </div>
                         <div className="rounded-lg border border-slate-800/80 bg-slate-900/70 p-1.5">
                           <p className="text-xs font-semibold text-slate-200">{row.updateEvents}</p>
-                          <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-500">Updates</p>
+                          <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-500">{t("common.updates")}</p>
                         </div>
                       </div>
                       <p className="text-[11px] text-slate-400">{mounted ? formatLastUpdate(row.lastUpdateMs) : "--"}</p>

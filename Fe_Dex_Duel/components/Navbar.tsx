@@ -8,12 +8,15 @@ import { FaucetButton } from "./FaucetButton";
 import { useUSDTBalance } from "@/hooks/useUSDTBalance";
 import { useState, useSyncExternalStore } from "react";
 import { Menu, X } from "lucide-react";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { useTranslation, type TranslationKey } from "@/lib/i18n";
 
 export default function Navbar() {
   const pathname = usePathname();
   const account = useCurrentAccount();
   const { balance, refetch: refetchBalance } = useUSDTBalance(account?.address);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { t } = useTranslation();
   const mounted = useSyncExternalStore(
     () => () => {},
     () => true,
@@ -21,10 +24,10 @@ export default function Navbar() {
   );
 
   const navLinks = [
-    { href: "/tournaments", label: "Tournaments", icon: "trophy" },
-    { href: "/arena", label: "Create", icon: "add_circle" },
-    { href: "/leaderboard", label: "Leaderboard", icon: "workspace_premium" },
-    { href: "/profile", label: "My Arena", icon: "person" },
+    { href: "/tournaments", labelKey: "nav.tournaments" as TranslationKey, icon: "trophy" },
+    { href: "/arena", labelKey: "nav.create" as TranslationKey, icon: "add_circle" },
+    { href: "/leaderboard", labelKey: "nav.leaderboard" as TranslationKey, icon: "workspace_premium" },
+    { href: "/profile", labelKey: "nav.myArena" as TranslationKey, icon: "person" },
   ];
 
   return (
@@ -81,7 +84,7 @@ export default function Navbar() {
 
             {/* Desktop Nav */}
             <div className="hidden items-center gap-0.5 lg:flex">
-              {navLinks.map(({ href, label, icon }) => {
+              {navLinks.map(({ href, labelKey, icon }) => {
                 const active = pathname === href || (href !== "/" && pathname.startsWith(href));
                 return (
                   <Link
@@ -111,7 +114,7 @@ export default function Navbar() {
                     >
                       {icon}
                     </span>
-                    {label}
+                    {t(labelKey)}
                     {active && (
                       <span
                         className="absolute bottom-0 left-2.5 right-2.5 h-[2px] rounded-full"
@@ -166,6 +169,9 @@ export default function Navbar() {
               </div>
             )}
 
+            {/* Language */}
+            <LanguageSwitcher />
+
             {/* Wallet */}
             <div className="flex items-center">
               {account ? (
@@ -177,7 +183,7 @@ export default function Navbar() {
                       <span className="material-symbols-outlined" style={{ fontSize: 15, lineHeight: 1 }}>
                         account_balance_wallet
                       </span>
-                      Connect
+                      {t("nav.connect")}
                     </span>
                   }
                   className="rounded-xl px-4 py-2 text-[12px] font-bold tracking-wide transition-all duration-200"
@@ -211,7 +217,7 @@ export default function Navbar() {
             style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}
           >
             <div className="mb-3 flex flex-col gap-0.5">
-              {navLinks.map(({ href, label, icon }) => {
+              {navLinks.map(({ href, labelKey, icon }) => {
                 const active = pathname === href || (href !== "/" && pathname.startsWith(href));
                 return (
                   <Link
@@ -230,7 +236,7 @@ export default function Navbar() {
                     >
                       {icon}
                     </span>
-                    {label}
+                    {t(labelKey)}
                   </Link>
                 );
               })}

@@ -1,11 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import { EXPLORER_BASE } from "@/lib/constants";
+import { useTranslation, type TranslationKey } from "@/lib/i18n";
 
-const NAV_LINKS = [
-  { href: "/tournaments", label: "Tournaments" },
-  { href: "/arena", label: "Create" },
-  { href: "/leaderboard", label: "Leaderboard" },
-  { href: "/profile", label: "My Arena" },
+const NAV_LINKS: { href: string; labelKey: TranslationKey }[] = [
+  { href: "/tournaments", labelKey: "nav.tournaments" },
+  { href: "/arena", labelKey: "nav.create" },
+  { href: "/leaderboard", labelKey: "nav.leaderboard" },
+  { href: "/profile", labelKey: "nav.myArena" },
 ];
 
 const RESOURCES = [
@@ -15,6 +18,7 @@ const RESOURCES = [
 ];
 
 export default function Footer() {
+  const { t } = useTranslation();
   return (
     <footer className="relative z-10 mt-auto border-t border-white/[0.04]">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -49,7 +53,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="max-w-xs text-[13px] leading-relaxed text-slate-500">
-              Lossless GameFi prediction arena on OneChain. Compete, predict, and earn yield — your principal stays safe.
+              {t("footer.description")}
             </p>
 
             {/* Network badge */}
@@ -70,16 +74,16 @@ export default function Footer() {
           {/* Navigate */}
           <div>
             <p className="mb-3.5 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-600">
-              Navigate
+              {t("footer.navigate")}
             </p>
             <ul className="space-y-2.5">
-              {NAV_LINKS.map(({ href, label }) => (
+              {NAV_LINKS.map(({ href, labelKey }) => (
                 <li key={href}>
                   <Link
                     href={href}
                     className="text-[13px] font-medium text-slate-500 transition-colors duration-200 hover:text-slate-300"
                   >
-                    {label}
+                    {t(labelKey)}
                   </Link>
                 </li>
               ))}
@@ -89,7 +93,7 @@ export default function Footer() {
           {/* Resources */}
           <div>
             <p className="mb-3.5 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-600">
-              Resources
+              {t("footer.resources")}
             </p>
             <ul className="space-y-2.5">
               {RESOURCES.map(({ href, label, external }) => (
@@ -115,24 +119,24 @@ export default function Footer() {
           {/* About */}
           <div>
             <p className="mb-3.5 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-600">
-              How It Works
+              {t("footer.howItWorks")}
             </p>
             <ul className="space-y-2.5 text-[13px] font-medium text-slate-500">
               <li className="flex items-start gap-2">
                 <span className="mt-0.5 text-[10px] font-black text-blue-400/60">01</span>
-                Join a tournament with USDT
+                {t("footer.step1")}
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-0.5 text-[10px] font-black text-blue-400/60">02</span>
-                Predict crypto price direction
+                {t("footer.step2")}
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-0.5 text-[10px] font-black text-blue-400/60">03</span>
-                Win rounds and climb the leaderboard
+                {t("footer.step3")}
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-0.5 text-[10px] font-black text-blue-400/60">04</span>
-                Claim prize pool rewards
+                {t("footer.step4")}
               </li>
             </ul>
           </div>
@@ -141,7 +145,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-3 border-t border-white/[0.04] py-6 sm:flex-row">
           <p className="text-[12px] text-slate-600">
-            &copy; {new Date().getFullYear()} DexDuel. Built for OneChain Hackathon.
+            &copy; {new Date().getFullYear()} {t("footer.copyright")}
           </p>
           <div className="flex items-center gap-1">
             <a
